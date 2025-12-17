@@ -1,0 +1,63 @@
+################################
+# General/Global Files
+################################
+
+# Operating System Files
+.DS_Store             # macOS
+Thumbs.db             # Windows
+desktop.ini           # Windows
+
+# Backup/Temp Files
+*.bak
+*.tmp
+*~
+~*.*
+
+################################
+# Node.js / Dependency Management
+################################
+
+# Dependency directories
+/node_modules
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# Yarn
+.yarn-integrity
+
+# Other package managers
+/bower_components
+
+################################
+# Build Artifacts / Compiled Files
+################################
+
+# Compiled JavaScript
+/dist                 # Common output directory
+/build
+*.min.js              # If you minify your JS separately
+
+# Compiled Sass/Less/PostCSS
+# If you compile your CSS source files into a final CSS file:
+/css/*.css            # Ignores all .css files in the css/ directory (assuming they are built artifacts)
+!/src/css/             # EXCEPT files inside a 'src/css/' directory (if you use that as your source)
+
+################################
+# Configuration & Credentials
+################################
+
+# Environment Variables & Secrets
+.env
+.env.local
+.env.*.local
+*.config.js           # Some configuration files can contain secrets
+
+# IDE and Editor Files
+.vscode/              # Visual Studio Code settings
+.idea/                # IntelliJ / WebStorm settings
+*.sublime-project
+*.sublime-workspace

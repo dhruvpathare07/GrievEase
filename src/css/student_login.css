@@ -1,0 +1,221 @@
+/* Variables for easy color management */
+:root {
+    --primary-blue: #2563EB;
+    /* Bright Blue Accent */
+    --light-bg: #F4F7FA;
+    /* Soft Light Gray Background */
+    --card-bg: #FFFFFF;
+    /* White Card Background */
+    --text-dark: #1F2937;
+    /* Dark Text */
+    --text-gray: #6B7280;
+    /* Medium Gray Text */
+    --border-light: #E5E7EB;
+    /* Light Border */
+}
+
+/* Global Reset and Typography */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--light-bg);
+    color: var(--text-dark);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Layout Container */
+.login-container {
+    width: 90%;
+    max-width: 960px;
+    padding: 20px;
+}
+
+/* Login Card - Prominent White Box */
+.login-card {
+    display: flex;
+    background-color: var(--card-bg);
+    border-radius: 20px;
+    /* Significantly rounded corners */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    /* Subtle drop shadow */
+    overflow: hidden;
+    min-height: 500px;
+}
+
+/* Visual Panel (Right/Side Image) */
+.visual-panel {
+    flex: 1;
+    background: linear-gradient(135deg, var(--primary-blue) 0%, #60A5FA 100%);
+    color: var(--card-bg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    text-align: center;
+}
+
+.visual-icon {
+    font-size: 80px;
+    margin-bottom: 20px;
+}
+
+.visual-panel p {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+/* Form Panel (Left) */
+.form-panel {
+    flex: 1.2;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.portal-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--primary-blue);
+    margin-bottom: 5px;
+}
+
+.portal-subtitle {
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--text-gray);
+    margin-bottom: 30px;
+}
+
+/* Dual Login Toggle Styling */
+.login-toggle {
+    display: flex;
+    margin-bottom: 30px;
+    border: 1px solid var(--border-light);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.toggle-btn {
+    flex: 1;
+    padding: 10px 15px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-gray);
+    transition: all 0.3s ease;
+}
+
+.toggle-btn.active {
+    background-color: var(--primary-blue);
+    color: var(--card-bg);
+    box-shadow: 0 2px 10px rgba(37, 99, 235, 0.3);
+}
+
+.toggle-btn i {
+    margin-right: 8px;
+}
+
+/* Form Styling */
+#login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--border-light);
+    border-radius: 8px;
+    padding: 10px;
+    transition: border-color 0.3s ease;
+}
+
+.input-group:focus-within {
+    border-color: var(--primary-blue);
+}
+
+.input-group i {
+    color: var(--text-gray);
+    margin-right: 10px;
+}
+
+.input-group input {
+    flex-grow: 1;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    padding: 5px 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Login Button */
+.login-btn {
+    padding: 12px 20px;
+    background-color: var(--primary-blue);
+    color: var(--card-bg);
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    box-shadow: 0 5px 15px rgba(37, 99, 235, 0.4);
+}
+
+.login-btn:hover {
+    background-color: #1D53C5;
+    transform: translateY(-1px);
+}
+
+/* Minimal Footer */
+.footer {
+    margin-top: 30px;
+    font-size: 12px;
+    color: var(--text-gray);
+    text-align: center;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    .login-card {
+        flex-direction: column;
+        min-height: auto;
+    }
+
+    .visual-panel {
+        display: none;
+        /* Hide visual element on small screens for cleaner look */
+    }
+
+    .form-panel {
+        padding: 30px 20px;
+    }
+
+    .portal-title {
+        font-size: 24px;
+    }
+
+    .login-toggle {
+        flex-direction: column;
+        border: none;
+        gap: 10px;
+    }
+
+    .toggle-btn {
+        border: 1px solid var(--border-light);
+    }
+}

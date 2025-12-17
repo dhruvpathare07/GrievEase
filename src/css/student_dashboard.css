@@ -1,0 +1,271 @@
+/* --- Root Variables for Light Mode --- */
+:root {
+    --primary-blue: #2563EB; 
+    --bg-color: #F4F7FA;   
+    --card-bg: #FFFFFF;     
+    --text-main: #1F2937;   
+    --text-secondary: #6B7280; 
+    --border-color: #E5E7EB; 
+    --sidebar-bg: #FFFFFF;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+/* --- Dark Mode Overrides --- */
+body.dark-mode {
+    --bg-color: #1A202C; 
+    --card-bg: #2D3748;     
+    --text-main: #E2E8F0;   
+    --text-secondary: #A0AEC0; 
+    --border-color: #4A5568; 
+    --sidebar-bg: #2D3748;
+    --shadow-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Global Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    min-height: 100vh;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Dashboard Wrapper */
+.dashboard-wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+/* --- Header Styling --- */
+.dashboard-header {
+    background-color: var(--card-bg);
+    box-shadow: 0 2px 4px var(--shadow-color);
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-title {
+    font-size: 24px; /* Updated size */
+    font-weight: 700;
+    color: var(--primary-blue);
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+#student-name {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--text-main);
+}
+
+.mobile-logout {
+    display: none; /* Hidden on desktop */
+}
+
+/* --- Main Layout and Sidebar --- */
+.main-layout {
+    display: flex;
+    flex-grow: 1;
+}
+
+.sidebar-nav {
+    width: 250px;
+    background-color: var(--sidebar-bg);
+    padding: 20px 0;
+    box-shadow: 2px 0 5px var(--shadow-color);
+    transition: background-color 0.3s;
+}
+
+/* Shared Nav Item Styling for Links and Divs */
+.nav-item, .nav-sub-item, .nav-parent {
+    display: flex;
+    align-items: center;
+    padding: 12px 30px;
+    color: var(--text-main);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 15px;
+    cursor: pointer;
+    transition: all 0.2s;
+    border-left: 4px solid transparent;
+}
+
+.nav-item i, .nav-sub-item i {
+    margin-right: 10px;
+    color: var(--text-secondary);
+}
+
+.nav-item:hover, .nav-item.active, .nav-parent:hover {
+    background-color: var(--bg-color);
+    color: var(--primary-blue);
+}
+
+.nav-item.active {
+    border-left-color: var(--primary-blue);
+}
+
+.nav-item.active i {
+    color: var(--primary-blue);
+}
+
+/* Theme Parent Styling */
+/* .nav-parent {
+    justify-content: space-between;
+} */
+.nav-parent .arrow-icon {
+    transition: transform 0.3s ease;
+}
+.nav-parent.expanded .arrow-icon {
+    transform: rotate(90deg);
+}
+
+/* Theme Sub-menu Styling (Hidden by default) */
+.theme-submenu {
+    display: none;
+    padding: 0 0 10px 0;
+    background-color: var(--sidebar-bg);
+}
+.theme-submenu.visible {
+    display: block;
+}
+
+.nav-sub-item {
+    background: none;
+    border: none;
+    width: 100%;
+    text-align: left;
+    padding-left: 50px; /* Indentation */
+    color: var(--text-secondary);
+    font-size: 14px;
+}
+
+.nav-sub-item:hover {
+    background-color: var(--bg-color);
+    color: var(--primary-blue);
+}
+
+/* --- Dashboard Content and Cards (Styles copied from previous step but use new variables) --- */
+.dashboard-content {
+    flex-grow: 1;
+    padding: 40px;
+    background-color: var(--bg-color);
+}
+
+.welcome-note {
+    font-size: 16px;
+    color: var(--text-secondary);
+    margin-bottom: 30px;
+    font-style: italic;
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.action-card {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--card-bg);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px var(--shadow-color); 
+    text-decoration: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    border: 1px solid transparent;
+}
+
+.action-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(37, 99, 235, 0.2);
+    border-color: var(--primary-blue);
+}
+
+.card-icon {
+    font-size: 36px;
+    color: var(--primary-blue);
+    margin-bottom: 15px;
+}
+
+.card-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--text-main);
+    margin-bottom: 10px;
+}
+
+.card-description {
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin-bottom: 20px;
+    flex-grow: 1;
+}
+
+.card-link-btn {
+    color: var(--primary-blue);
+    font-weight: 600;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+}
+
+.card-link-btn i {
+    margin-left: 8px;
+    transition: margin-left 0.3s ease;
+}
+
+.action-card:hover .card-link-btn i {
+    margin-left: 15px;
+}
+
+/* --- Responsiveness --- */
+@media (max-width: 992px) {
+    .sidebar-nav {
+        width: 180px;
+    }
+}
+
+@media (max-width: 600px) {
+    .dashboard-header {
+        flex-direction: row;
+        gap: 10px;
+        padding: 10px 15px;
+    }
+    .header-title {
+        font-size: 18px;
+    }
+    .sidebar-nav {
+        display: none;
+    }
+    .main-layout {
+        flex-direction: column;
+    }
+    .dashboard-content {
+        padding: 15px;
+    }
+    .mobile-logout {
+        display: block;
+        border: none;
+        padding: 8px;
+        color: var(--primary-blue);
+        background: transparent;
+        font-size: 18px;
+    }
+    #student-name {
+        font-size: 14px;
+    }
+}
