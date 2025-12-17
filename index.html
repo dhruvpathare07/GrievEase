@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grievance Portal Login</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <link rel="stylesheet" href="../css/student_login.css">
+</head>
+
+<body>
+    <div class="login-container">
+        <div class="login-card">
+            <div class="visual-panel">
+                <i class="fas fa-graduation-cap visual-icon"></i>
+                <p>Welcome to the Student Grievance Redressal Portal</p>
+            </div>
+            <div class="form-panel">
+                <h1 class="portal-title">Student Grievance Redressal Portal</h1>
+                <h2 class="portal-subtitle">Login to continue</h2>
+
+                <div class="login-toggle">
+                    <button class="toggle-btn active" id="student-btn">
+                        <i class="fas fa-user-graduate"></i> Login as Student
+                    </button>
+                    <button class="toggle-btn" id="admin-btn">
+                        <i class="fas fa-user-shield"></i> Login as Admin
+                    </button>
+                </div>
+
+                <form id="login-form">
+                    <div class="input-group">
+                        <i class="fas fa-id-badge"></i>
+                        <input type="text" id="username" placeholder="Student ID or Email" required>
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="password" placeholder="Password" required>
+                    </div>
+                    <button type="submit" class="login-btn">LOGIN</button>
+                </form>
+
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        © 2025 Student Grievance Portal
+    </footer>
+
+    <script src="../js/login.js"></script>
+</body> 
+</html>
