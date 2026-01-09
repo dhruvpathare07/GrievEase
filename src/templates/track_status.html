@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Track Complaint Status - GrievEase</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- Theme Engine -->
+    <script src="../js/theme-engine.js"></script>
+
+    <!-- Shared Dashboard Styles -->
+    <link rel="stylesheet" href="../css/student_dashboard.css">
+
+    <!-- Page-specific Styles -->
+    <link rel="stylesheet" href="../css/track_status.css">
+</head>
+
+<body>
+<div class="dashboard-wrapper">
+
+    <!-- ===== HEADER ===== -->
+    <header class="dashboard-header">
+        <h1 class="header-title">Track Complaint Status</h1>
+        <div class="user-info">
+            <span id="student-name">Alex Johnson</span>
+        </div>
+    </header>
+
+    <div class="main-layout">
+
+        <!-- ===== SIDEBAR ===== -->
+        <aside class="sidebar-nav">
+            <a href="./student_dashboard.html" class="nav-item">
+                <i class="fas fa-home"></i> <span>Dashboard</span>
+            </a>
+
+            <a href="#" class="nav-item">
+                <i class="fas fa-user"></i> <span>My Profile</span>
+            </a>
+
+            <a href="./my_complaints.html" class="nav-item">
+                <i class="fas fa-list"></i> <span>My Complaints</span>
+            </a>
+
+            <div class="nav-item nav-parent" id="theme-parent">
+                <i class="fas fa-cog"></i> <span>Theme</span>
+                <i class="fas fa-chevron-right arrow-icon"></i>
+            </div>
+
+            <div class="theme-submenu" id="theme-submenu">
+                <button class="nav-sub-item" id="theme-light"><i class="fas fa-sun"></i> Light</button>
+                <button class="nav-sub-item" id="theme-dark"><i class="fas fa-moon"></i> Dark</button>
+            </div>
+
+            <a href="#" class="nav-item logout-sidebar-btn">
+                <i class="fas fa-sign-out-alt"></i> <span>Logout</span>
+            </a>
+        </aside>
+
+        <!-- ===== MAIN CONTENT ===== -->
+        <main class="dashboard-content">
+
+            <!-- ===== SEARCH CARD ===== -->
+            <div class="card search-card">
+                <h2>🔍 Track Your Complaint</h2>
+                <p>Enter your Complaint ID to check the current status.</p>
+
+                <div class="search-box">
+                    <input type="text" placeholder="Enter Complaint ID (e.g., GE-2026-0142)">
+                    <button class="primary-btn">Check Status</button>
+                </div>
+
+                <small class="helper-text">
+                    You can find your Complaint ID on the <strong>My Complaints</strong> page.
+                </small>
+            </div>
+
+            <!-- ===== COMPLAINT SUMMARY ===== -->
+            <div class="card summary-card">
+                <div class="summary-header">
+                    <h3>Complaint Summary</h3>
+                    <span class="status-badge in-progress">In Progress</span>
+                </div>
+
+                <div class="summary-grid">
+                    <div>
+                        <span class="label">Complaint ID</span>
+                        <span class="value">GE-2026-0142</span>
+                    </div>
+                    <div>
+                        <span class="label">Category</span>
+                        <span class="value">Hostel / Infrastructure</span>
+                    </div>
+                    <div>
+                        <span class="label">Title</span>
+                        <span class="value">Water Leakage in Room</span>
+                    </div>
+                    <div>
+                        <span class="label">Date Submitted</span>
+                        <span class="value">12 Jan 2026</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== STATUS TIMELINE ===== -->
+            <div class="card timeline-card">
+                <h3>📌 Complaint Progress</h3>
+
+                <ul class="timeline">
+                    <li class="completed">
+                        <i class="fas fa-check-circle"></i>
+                        <div>
+                            <strong>Submitted</strong>
+                            <span>12 Jan 2026</span>
+                        </div>
+                    </li>
+
+                    <li class="completed">
+                        <i class="fas fa-check-circle"></i>
+                        <div>
+                            <strong>Under Review</strong>
+                            <span>13 Jan 2026</span>
+                        </div>
+                    </li>
+
+                    <li class="active">
+                        <i class="fas fa-spinner"></i>
+                        <div>
+                            <strong>Assigned to Authority</strong>
+                            <span>14 Jan 2026</span>
+                        </div>
+                    </li>
+
+                    <li>
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <strong>In Progress</strong>
+                        </div>
+                    </li>
+
+                    <li>
+                        <i class="fas fa-flag"></i>
+                        <div>
+                            <strong>Resolved</strong>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- ===== AUTHORITY REMARKS ===== -->
+            <div class="card remarks-card">
+                <h3>📝 Authority Remarks</h3>
+                <p>
+                    Maintenance team has been assigned. Inspection scheduled within 48 hours.
+                </p>
+            </div>
+
+        </main>
+    </div>
+</div>
+
+<script src="../js/dashboard.js"></script>
+</body>
+</html>

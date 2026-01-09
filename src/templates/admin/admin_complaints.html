@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complaint Management - GrievEase Admin</title>
+
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- Theme Engine -->
+    <script src="../../js/theme-engine.js"></script>
+
+    <!-- Shared Dashboard Styles -->
+    <link rel="stylesheet" href="../../css/student_dashboard.css">
+
+    <!-- Admin Page Styles -->
+    <link rel="stylesheet" href="../../css/admin/admin_complaints.css">
+</head>
+
+<body>
+<div class="dashboard-wrapper">
+
+    <!-- ===== HEADER ===== -->
+    <header class="dashboard-header">
+        <h1 class="header-title">Complaint Management</h1>
+        <div class="user-info">
+            <span>Admin Panel</span>
+        </div>
+    </header>
+
+    <div class="main-layout">
+
+        <!-- ===== SIDEBAR ===== -->
+        <aside class="sidebar-nav">
+            <a href="./admin_dashboard.html" class="nav-item">
+                <i class="fas fa-chart-line"></i> <span>Dashboard</span>
+            </a>
+
+            <a href="#" class="nav-item active">
+                <i class="fas fa-folder-open"></i> <span>Complaints</span>
+            </a>
+
+            <div class="nav-item nav-parent" id="theme-parent">
+                <i class="fas fa-cog"></i> <span>Theme</span>
+                <i class="fas fa-chevron-right arrow-icon"></i>
+            </div>
+
+            <div class="theme-submenu" id="theme-submenu">
+                <button class="nav-sub-item" id="theme-light"><i class="fas fa-sun"></i> Light</button>
+                <button class="nav-sub-item" id="theme-dark"><i class="fas fa-moon"></i> Dark</button>
+            </div>
+
+            <a href="#" class="nav-item logout-sidebar-btn">
+                <i class="fas fa-sign-out-alt"></i> <span>Logout</span>
+            </a>
+        </aside>
+
+        <!-- ===== MAIN CONTENT ===== -->
+        <main class="dashboard-content">
+
+            <!-- ===== FILTER BAR ===== -->
+            <div class="card filter-card">
+                <div class="filters">
+
+                    <!-- Search by Complaint ID -->
+                    <input type="text" placeholder="Search Complaint ID">
+
+                    <!-- Filter by Category -->
+                    <select>
+                        <option value="">All Categories</option>
+                        <option>Academic</option>
+                        <option>Hostel</option>
+                        <option>Finance</option>
+                    </select>
+
+                    <!-- Filter by Status -->
+                    <select>
+                        <option value="">All Status</option>
+                        <option>Pending</option>
+                        <option>In Progress</option>
+                        <option>Resolved</option>
+                        <option>Rejected</option>
+                    </select>
+
+                    <!-- Filter by Date -->
+                    <input type="date">
+
+                    <button class="primary-btn">
+                        <i class="fas fa-filter"></i> Apply
+                    </button>
+                </div>
+            </div>
+
+            <!-- ===== COMPLAINTS TABLE ===== -->
+            <div class="card table-card">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Complaint ID</th>
+                            <th>Category</th>
+                            <th>Title</th>
+                            <th>Student</th>
+                            <th>Date</th>
+                            <th>Status</th>
+                            <th>Priority</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>GE-2026-0142</td>
+                            <td>Hostel</td>
+                            <td>Water Leakage</td>
+                            <td>Alex Johnson</td>
+                            <td>12 Jan 2026</td>
+                            <td><span class="badge in-progress">In Progress</span></td>
+                            <td><span class="badge high">High</span></td>
+                            <td>
+                                <button class="icon-btn">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>GE-2026-0138</td>
+                            <td>Academic</td>
+                            <td>Exam Revaluation</td>
+                            <td>Sara Lee</td>
+                            <td>10 Jan 2026</td>
+                            <td><span class="badge pending">Pending</span></td>
+                            <td><span class="badge medium">Medium</span></td>
+                            <td>
+                                <button class="icon-btn">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </main>
+    </div>
+</div>
+
+<script src="../../js/dashboard.js"></script>
+</body>
+</html>

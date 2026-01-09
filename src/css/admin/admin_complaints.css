@@ -1,0 +1,84 @@
+/* ===== CARD BASE ===== */
+.card {
+    background-color: var(--card-bg);
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px var(--shadow-color);
+    margin-bottom: 25px;
+}
+
+/* ===== FILTER BAR ===== */
+.filters {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.filters input,
+.filters select {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    background-color: var(--bg-color);
+    color: var(--text-main);
+}
+
+.primary-btn {
+    background-color: var(--primary-blue);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* ===== TABLE ===== */
+.table-card table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table-card th,
+.table-card td {
+    padding: 14px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.table-card th {
+    font-size: 13px;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+}
+
+.table-card tr:hover {
+    background-color: var(--hover-bg);
+}
+
+/* ===== BADGES ===== */
+.badge {
+    padding: 5px 12px;
+    border-radius: 15px;
+    font-size: 12px;
+    font-weight: 600;
+    color: white;
+}
+
+.badge.pending { background-color: #f1c40f; }
+.badge.in-progress { background-color: #3498db; }
+.badge.resolved { background-color: #2ecc71; }
+.badge.rejected { background-color: #e74c3c; }
+
+.badge.high { background-color: #e74c3c; }
+.badge.medium { background-color: #f39c12; }
+.badge.low { background-color: #2ecc71; }
+
+/* ===== ACTION BUTTON ===== */
+.icon-btn {
+    background: none;
+    border: none;
+    color: var(--primary-blue);
+    font-size: 16px;
+    cursor: pointer;
+}

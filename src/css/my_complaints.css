@@ -1,0 +1,80 @@
+/* Filter Bar */
+.filter-bar {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+}
+
+.filter-bar input,
+.filter-bar select {
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    background-color: var(--card-bg);
+    color: var(--text-main);
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Table */
+.table-wrapper {
+    background-color: var(--card-bg);
+    border-radius: 12px;
+    box-shadow: 0 4px 15px var(--shadow-color);
+    overflow-x: auto;
+}
+
+.complaints-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.complaints-table th,
+.complaints-table td {
+    padding: 15px;
+    text-align: left;
+    font-size: 14px;
+}
+
+.complaints-table thead {
+    background-color: var(--bg-color);
+}
+
+.complaints-table tr {
+    border-bottom: 1px solid var(--border-color);
+}
+
+.clickable-row {
+    cursor: pointer;
+}
+
+.clickable-row:hover {
+    background-color: var(--bg-color);
+}
+
+/* Status Badges */
+.status-badge {
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.status-badge.submitted {
+    background-color: #DBEAFE;
+    color: #1D4ED8;
+}
+
+.status-badge.resolved {
+    background-color: #DCFCE7;
+    color: #166534;
+}
+
+/* Responsive: Mobile */
+@media (max-width: 768px) {
+    .complaints-table {
+        display: none;
+    }
+
+    /* Later: card layout can be added here */
+}

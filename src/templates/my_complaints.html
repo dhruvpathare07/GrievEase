@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Complaints - GrievEase</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- Shared Theme + Dashboard Styles -->
+    <script src="../js/theme-engine.js"></script>
+    <link rel="stylesheet" href="../css/student_dashboard.css">
+
+    <!-- Page Specific Styles -->
+    <link rel="stylesheet" href="../css/my_complaints.css">
+</head>
+
+<body>
+<div class="dashboard-wrapper">
+
+    <!-- Header -->
+    <header class="dashboard-header">
+        <h1 class="header-title">My Complaints</h1>
+        <div class="user-info">
+            <span id="student-name">Alex Johnson</span>
+        </div>
+    </header>
+
+    <div class="main-layout">
+
+        <!-- Sidebar -->
+        <aside class="sidebar-nav">
+            <a href="./student_dashboard.html" class="nav-item">
+                <i class="fas fa-home"></i> <span>Dashboard</span>
+            </a>
+            <a href="#" class="nav-item">
+                <i class="fas fa-user"></i> <span>My Profile</span>
+            </a>
+            <div class="nav-item nav-parent" id="theme-parent">
+                <i class="fas fa-cog"></i> <span>Theme</span>
+                <i class="fas fa-chevron-right arrow-icon"></i>
+            </div>
+            <div class="theme-submenu" id="theme-submenu">
+                <button class="nav-sub-item" id="theme-light"><i class="fas fa-sun"></i> Light</button>
+                <button class="nav-sub-item" id="theme-dark"><i class="fas fa-moon"></i> Dark</button>
+            </div>
+            <a href="#" class="nav-item logout-sidebar-btn" id="logout-sidebar-btn">
+                <i class="fas fa-sign-out-alt"></i> <span>Logout</span>
+            </a>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="dashboard-content">
+<!--
+    NOTE:
+    Filters and search are UI-only for now.
+    Logic will be implemented after backend API integration.
+-->
+            <!-- Filter Bar -->
+            <div class="filter-bar">
+                <input type="text" placeholder="Search by Complaint ID">
+
+                <select>
+                    <option value="">All Categories</option>
+                    <option value="academic">Academic</option>
+                    <option value="hostel">Hostel / Infrastructure</option>
+                    <option value="finance">Fees & Finance</option>
+                </select>
+
+                <select>
+                    <option value="">All Status</option>
+                    <option value="submitted">Submitted</option>
+                    <option value="review">In Review</option>
+                    <option value="resolved">Resolved</option>
+                </select>
+
+                <select>
+                    <option value="newest">Newest First</option>
+                    <option value="oldest">Oldest First</option>
+                </select>
+            </div>
+
+            <!-- Complaints Table (Desktop) -->
+            <div class="table-wrapper">
+                <table class="complaints-table">
+                    <thead>
+                        <tr>
+                            <th>Complaint ID</th>
+                            <th>Category</th>
+                            <th>Title</th>
+                            <th>Date Submitted</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Sample Row -->
+                        <tr class="clickable-row">
+                            <td>GRV-2025-0012</td>
+                            <td>Academic</td>
+                            <td>Delay in internal marks update</td>
+                            <td>12 Jan 2025</td>
+                            <td><span class="status-badge submitted">Submitted</span></td>
+                        </tr>
+
+                        <tr class="clickable-row">
+                            <td>GRV-2025-0009</td>
+                            <td>Hostel</td>
+                            <td>Water supply issue</td>
+                            <td>05 Jan 2025</td>
+                            <td><span class="status-badge resolved">Resolved</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </main>
+    </div>
+</div>
+
+<script src="../js/dashboard.js"></script>
+</body>
+</html>

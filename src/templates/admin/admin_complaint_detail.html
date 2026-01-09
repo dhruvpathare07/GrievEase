@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complaint Detail - Admin | GrievEase</title>
+
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+<!-- Theme Engine -->
+<script src="../../js/theme-engine.js"></script>
+
+<!-- Shared Dashboard Styles (MANDATORY) -->
+<link rel="stylesheet" href="../../css/student_dashboard.css">
+
+<!-- Admin Detail Page Styles -->
+<link rel="stylesheet" href="../../css/admin/admin_complaint_detail.css">
+
+<body>
+<div class="dashboard-wrapper">
+
+    <!-- ===== HEADER ===== -->
+    <header class="dashboard-header">
+        <h1 class="header-title">Complaint Detail</h1>
+        <div class="user-info">
+            <span>Admin Panel</span>
+        </div>
+    </header>
+
+    <div class="main-layout">
+
+        <!-- ===== SIDEBAR ===== -->
+        <aside class="sidebar-nav">
+            <a href="./admin_dashboard.html" class="nav-item">
+                <i class="fas fa-chart-line"></i> <span>Dashboard</span>
+            </a>
+            <a href="./admin_complaints.html" class="nav-item active">
+                <i class="fas fa-folder-open"></i> <span>Complaints</span>
+            </a>
+            <a href="#" class="nav-item logout-sidebar-btn">
+                <i class="fas fa-sign-out-alt"></i> <span>Logout</span>
+            </a>
+        </aside>
+
+        <!-- ===== MAIN CONTENT ===== -->
+        <main class="dashboard-content">
+
+            <!-- ===== COMPLAINT SUMMARY ===== -->
+            <div class="card summary-card">
+                <div class="summary-header">
+                    <h2>Water Leakage in Room</h2>
+                    <span class="badge in-progress">In Progress</span>
+                </div>
+
+                <div class="summary-grid">
+                    <div>
+                        <span class="label">Complaint ID</span>
+                        <span class="value">GE-2026-0142</span>
+                    </div>
+                    <div>
+                        <span class="label">Category</span>
+                        <span class="value">Hostel / Infrastructure</span>
+                    </div>
+                    <div>
+                        <span class="label">Student Name</span>
+                        <span class="value">Alex Johnson</span>
+                    </div>
+                    <div>
+                        <span class="label">Date Submitted</span>
+                        <span class="value">12 Jan 2026</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== DESCRIPTION & ATTACHMENT ===== -->
+            <div class="card">
+                <h3>Complaint Description</h3>
+                <p class="description-text">
+                    There is continuous water leakage from the ceiling in my hostel room.
+                    The issue has been present for the last three days and is causing damage.
+                </p>
+
+                <!-- Attachment preview -->
+                <div class="attachment">
+                    <i class="fas fa-image"></i>
+                    <span>leakage_photo.jpg</span>
+                </div>
+            </div>
+
+            <!-- ===== STATUS UPDATE CONTROLS ===== -->
+            <div class="card action-card">
+                <h3>Update Complaint</h3>
+
+                <div class="action-grid">
+                    <div>
+                        <label>Status</label>
+                        <select>
+                            <option>Pending</option>
+                            <option selected>In Progress</option>
+                            <option>Resolved</option>
+                            <option>Rejected</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label>Priority</label>
+                        <select>
+                            <option>Low</option>
+                            <option selected>Medium</option>
+                            <option>High</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button class="primary-btn">
+                    <i class="fas fa-save"></i> Save Changes
+                </button>
+            </div>
+
+            <!-- ===== STATUS TIMELINE ===== -->
+            <div class="card">
+                <h3>Complaint Timeline</h3>
+
+                <ul class="timeline">
+                    <li class="completed">
+                        <i class="fas fa-check-circle"></i>
+                        <div>
+                            <strong>Submitted</strong>
+                            <span>12 Jan 2026</span>
+                        </div>
+                    </li>
+
+                    <li class="completed">
+                        <i class="fas fa-check-circle"></i>
+                        <div>
+                            <strong>Under Review</strong>
+                            <span>13 Jan 2026</span>
+                        </div>
+                    </li>
+
+                    <li class="active">
+                        <i class="fas fa-spinner"></i>
+                        <div>
+                            <strong>Assigned to Maintenance</strong>
+                            <span>14 Jan 2026</span>
+                        </div>
+                    </li>
+
+                    <li>
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <strong>Resolved</strong>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- ===== REMARKS ===== -->
+            <div class="card">
+                <h3>Admin Remarks (Internal)</h3>
+                <textarea placeholder="Visible to admins only..."></textarea>
+
+                <h3 class="mt">Public Response (Visible to Student)</h3>
+                <textarea placeholder="This will be shown to the student..."></textarea>
+
+                <button class="primary-btn">
+                    <i class="fas fa-comment"></i> Update Remarks
+                </button>
+            </div>
+
+        </main>
+    </div>
+</div>
+
+<script src="../../js/dashboard.js"></script>
+</body>
+</html>

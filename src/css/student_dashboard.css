@@ -101,6 +101,10 @@ body {
     cursor: pointer;
     transition: all 0.2s;
     border-left: 4px solid transparent;
+    gap: 10px;
+}
+.nav-parent .arrow-icon {
+    margin-left: 10px; /* Pushes the arrow to the right edge */
 }
 
 .nav-item i, .nav-sub-item i {

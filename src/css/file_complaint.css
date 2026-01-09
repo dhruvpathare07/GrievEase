@@ -1,0 +1,78 @@
+.form-container {
+    background-color: var(--card-bg);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px var(--shadow-color);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.form-container h2 {
+    color: var(--primary-blue);
+    margin-bottom: 10px;
+}
+
+.form-container p {
+    color: var(--text-secondary);
+    margin-bottom: 30px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--text-main);
+}
+
+.form-group input, .form-group select, .form-group textarea {
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    font-family: 'Poppins', sans-serif;
+}
+
+.submit-btn {
+    background-color: var(--primary-blue);
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.submit-btn:hover {
+    transform: scale(1.02);
+    opacity: 0.9;
+}
+/* Helper text under inputs */
+.helper-text {
+    font-size: 12px;
+    color: var(--text-secondary);
+}
+
+/* Image Preview */
+.image-preview {
+    margin-top: 10px;
+    max-width: 250px;
+}
+
+.image-preview img {
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+}
+
+/* Hidden utility */
+.hidden {
+    display: none;
+}
