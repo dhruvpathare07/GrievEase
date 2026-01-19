@@ -74,4 +74,37 @@ document.addEventListener('DOMContentLoaded', () => {
         // Note: For a real Admin login, you would redirect to a separate admin page.
         // For simplicity, both are redirecting to the main dashboard for now.
     });
+    // ===== LOGIN ↔ REGISTER TOGGLE =====
+const loginFormEl = document.getElementById('login-form');
+const registerFormEl = document.getElementById('register-form');
+const registerLink = document.getElementById('create-account-link');
+const backToLoginLink = document.getElementById('back-to-login');
+
+// Show Register Form
+if (registerLink) {
+    registerLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation(); // 🔥 IMPORTANT
+
+        loginFormEl.classList.add('hidden');
+        registerFormEl.classList.remove('hidden');
+
+        // Force student mode
+        studentBtn.classList.add('active');
+        adminBtn.classList.remove('active');
+        usernameInput.placeholder = 'Student ID or Email';
+    });
+}
+
+
+// Back to Login
+if (backToLoginLink) {
+    backToLoginLink.addEventListener('click', (e) => {
+        e.preventDefault();
+
+        registerFormEl.classList.add('hidden');
+        loginFormEl.classList.remove('hidden');
+    });
+}
+
 });

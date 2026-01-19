@@ -3,52 +3,128 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grievance Portal Login</title>
+    <title>GrievEase | Login</title>
+
+    <!-- Fonts & Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- Styles -->
     <link rel="stylesheet" href="css/shared/index_login.css">
-    <script src="js/shared/theme-engine.js"></script>
+
+    <!-- Theme -->
+    <script src="js/shared/theme-engine.js" defer></script>
 </head>
 
 <body>
     <div class="login-container">
         <div class="login-card">
+
+            <!-- Visual Panel -->
             <div class="visual-panel">
                 <i class="fas fa-graduation-cap visual-icon"></i>
-                <p>Welcome to the Student Grievance Redressal Portal</p>
+                <p>Welcome to GrievEase – A Transparent Student Grievance System</p>
             </div>
-            <div class="form-panel">
-                <h1 class="portal-title">Student Grievance Redressal Portal</h1>
-                <h2 class="portal-subtitle">Login to continue</h2>
 
+            <!-- Form Panel -->
+            <div class="form-panel">
+                <h1 class="portal-title">GrievEase</h1>
+                <h2 class="portal-subtitle">Sign in to your account</h2>
+
+                <!-- Role Toggle -->
                 <div class="login-toggle">
                     <button class="toggle-btn active" id="student-btn">
-                        <i class="fas fa-user-graduate"></i> Login as Student
+                        <i class="fas fa-user-graduate"></i> Student
                     </button>
                     <button class="toggle-btn" id="admin-btn">
-                        <i class="fas fa-user-shield"></i> Login as Admin
+                        <i class="fas fa-user-shield"></i> Admin
                     </button>
                 </div>
 
+                <!-- Login Form -->
                 <form id="login-form">
+
                     <div class="input-group">
                         <i class="fas fa-id-badge"></i>
                         <input type="text" id="username" placeholder="Student ID or Email" required>
                     </div>
+
                     <div class="input-group">
                         <i class="fas fa-lock"></i>
                         <input type="password" id="password" placeholder="Password" required>
                     </div>
-                    <button type="submit" class="login-btn">LOGIN</button>
+
+                    <!-- Forgot password -->
+                    <div class="form-links">
+                        <a href="#" class="forgot-link">Forgot password?</a>
+                    </div>
+
+                    <button type="submit" class="login-btn">Login</button>
                 </form>
+                <!-- ===== REGISTER FORM (HIDDEN INITIALLY) ===== -->
+<form id="register-form" class="hidden">
+
+    <div class="input-group">
+        <i class="fas fa-user"></i>
+        <input type="text" id="reg-name" placeholder="Full Name" required>
+    </div>
+
+    <div class="input-group">
+        <i class="fas fa-id-card"></i>
+        <input type="text" id="reg-student-id" placeholder="Student ID" required>
+    </div>
+
+    <div class="input-group">
+        <i class="fas fa-envelope"></i>
+        <input type="email" id="reg-email" placeholder="Email Address" required>
+    </div>
+
+    <div class="input-group">
+        <i class="fas fa-lock"></i>
+        <input type="password" id="reg-password" placeholder="Create Password" required>
+    </div>
+
+    <div class="input-group">
+        <i class="fas fa-lock"></i>
+        <input type="password" id="reg-confirm-password" placeholder="Confirm Password" required>
+    </div>
+
+    <button type="submit" class="login-btn">
+        Create Account
+    </button>
+
+    <div class="register-section">
+        <p>
+            Already have an account?
+            <a href="#" id="back-to-login" class="register-link">Back to Login</a>
+        </p>
+    </div>
+
+</form>
+
+
+                <!-- Register link -->
+                <div class="register-section">
+                    <p>
+                        New student?
+                        <a href="#" id="create-account-link" class="register-link">
+                            Create an account
+                        </a>
+                        
+                    </p>
+                    <small class="admin-note">
+                        Admin accounts are created by the institution.
+                    </small>
+                </div>
 
             </div>
         </div>
     </div>
+
     <footer class="footer">
-        © 2025 Student Grievance Portal
+        © 2025 GrievEase · Secure Student Grievance Portal
     </footer>
 
     <script src="js/shared/login.js"></script>
-</body> 
+</body>
 </html>
