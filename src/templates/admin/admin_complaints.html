@@ -1,3 +1,4 @@
+<!-- admin_complaint.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,10 +11,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
     <!-- Theme Engine -->
-    <script src="../../js/theme-engine.js"></script>
+    <script src="../../js/shared/theme-engine.js" defer></script>
+    <script src="../../js/shared/dashboard.js" defer></script>
 
     <!-- Shared Dashboard Styles -->
-    <link rel="stylesheet" href="../../css/student_dashboard.css">
+    <link rel="stylesheet" href="../../css/shared/dashboard.css">
 
     <!-- Admin Page Styles -->
     <link rel="stylesheet" href="../../css/admin/admin_complaints.css">
@@ -71,18 +73,23 @@
                     <select>
                         <option value="">All Categories</option>
                         <option>Academic</option>
-                        <option>Hostel</option>
-                        <option>Finance</option>
+                        <option>Infrastructure</option>
+                        <option>Lost & Found</option>
+                        <option>Safety</option>
+                        <option>Other</option>
                     </select>
+                    
 
                     <!-- Filter by Status -->
                     <select>
                         <option value="">All Status</option>
-                        <option>Pending</option>
+                        <option>Submitted</option>
+                        <option>In Review</option>
                         <option>In Progress</option>
                         <option>Resolved</option>
                         <option>Rejected</option>
                     </select>
+                    
 
                     <!-- Filter by Date -->
                     <input type="date">
@@ -110,13 +117,13 @@
                     </thead>
 
                     <tbody>
-                        <tr>
+                        <tr class="clickable-row" data-id="GE-2026-0142">
                             <td>GE-2026-0142</td>
-                            <td>Hostel</td>
+                            <td>Infrastructure</td>
                             <td>Water Leakage</td>
                             <td>Alex Johnson</td>
                             <td>12 Jan 2026</td>
-                            <td><span class="badge in-progress">In Progress</span></td>
+                            <td><span class="status-badge in-progress">In Progress</span></td>
                             <td><span class="badge high">High</span></td>
                             <td>
                                 <button class="icon-btn">
@@ -131,7 +138,7 @@
                             <td>Exam Revaluation</td>
                             <td>Sara Lee</td>
                             <td>10 Jan 2026</td>
-                            <td><span class="badge pending">Pending</span></td>
+                            <td><span class="status-badge submitted">Submitted</span></td>
                             <td><span class="badge medium">Medium</span></td>
                             <td>
                                 <button class="icon-btn">
@@ -147,6 +154,5 @@
     </div>
 </div>
 
-<script src="../../js/dashboard.js"></script>
 </body>
 </html>

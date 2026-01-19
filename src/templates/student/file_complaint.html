@@ -7,9 +7,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     
-    <script src="../js/theme-engine.js"></script>
-    <link rel="stylesheet" href="../css/student_dashboard.css">
-    <link rel="stylesheet" href="../css/file_complaint.css">
+    <script src="../../js/shared/theme-engine.js" defer></script>
+    <script src="../../js/shared/dashboard.js" defer></script>
+    <script src="../../js/student/file_complaint.js" defer></script>
+    <link rel="stylesheet" href="../../css/shared/dashboard.css">
+    <link rel="stylesheet" href="../../css/student/file_complaint.css">
 </head>
 <body>
     <div class="dashboard-wrapper">
@@ -54,10 +56,11 @@
                             <select id="category" name="category" required>
                                 <option value="">Select Category</option>
                                 <option value="academic">Academic</option>
-                                <option value="hostel">Hostel / Infrastructure</option>
-                                <option value="finance">Fees & Finance</option>
+                                <option value="infrastructure">Infrastructure</option>
+                                <option value="lost_found">Lost & Found</option>
+                                <option value="safety">Safety</option>
                                 <option value="other">Other</option>
-                            </select>
+                            </select>                            
                         </div>
                     
                         <!-- Complaint Subject -->
@@ -114,7 +117,5 @@
             </main>
         </div>
     </div>
-    <script src="../js/dashboard.js"></script>
-    <script src="../js/file_complaint.js"></script>
 </body>
 </html>

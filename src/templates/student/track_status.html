@@ -12,13 +12,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
     <!-- Theme Engine -->
-    <script src="../js/theme-engine.js"></script>
-
+    <script src="../../js/shared/theme-engine.js" defer></script>
+    <script src="../../js/shared/dashboard.js" defer></script>
     <!-- Shared Dashboard Styles -->
-    <link rel="stylesheet" href="../css/student_dashboard.css">
+    <link rel="stylesheet" href="../../css/shared/dashboard.css">
 
     <!-- Page-specific Styles -->
-    <link rel="stylesheet" href="../css/track_status.css">
+    <link rel="stylesheet" href="../../css/student/track_status.css">
 </head>
 
 <body>
@@ -95,7 +95,7 @@
                     </div>
                     <div>
                         <span class="label">Category</span>
-                        <span class="value">Hostel / Infrastructure</span>
+                        <span class="value">Infrastructure</span>
                     </div>
                     <div>
                         <span class="label">Title</span>
@@ -120,37 +120,30 @@
                             <span>12 Jan 2026</span>
                         </div>
                     </li>
-
+                
                     <li class="completed">
                         <i class="fas fa-check-circle"></i>
                         <div>
-                            <strong>Under Review</strong>
+                            <strong>In Review</strong>
                             <span>13 Jan 2026</span>
                         </div>
                     </li>
-
+                
                     <li class="active">
                         <i class="fas fa-spinner"></i>
                         <div>
-                            <strong>Assigned to Authority</strong>
+                            <strong>In Progress</strong>
                             <span>14 Jan 2026</span>
                         </div>
                     </li>
-
-                    <li>
-                        <i class="fas fa-clock"></i>
-                        <div>
-                            <strong>In Progress</strong>
-                        </div>
-                    </li>
-
+                
                     <li>
                         <i class="fas fa-flag"></i>
                         <div>
                             <strong>Resolved</strong>
                         </div>
                     </li>
-                </ul>
+                </ul>                
             </div>
 
             <!-- ===== AUTHORITY REMARKS ===== -->
@@ -164,7 +157,5 @@
         </main>
     </div>
 </div>
-
-<script src="../js/dashboard.js"></script>
 </body>
 </html>

@@ -57,18 +57,7 @@
     color: var(--text-main);
 }
 
-/* ===== STATUS BADGE ===== */
-.status-badge {
-    padding: 6px 14px;
-    border-radius: 20px;
-    font-size: 12px;
-    font-weight: 600;
-}
 
-.status-badge.in-progress {
-    background-color: #3498db;
-    color: white;
-}
 
 /* ===== TIMELINE ===== */
 .timeline {

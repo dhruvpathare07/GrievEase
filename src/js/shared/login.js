@@ -64,11 +64,13 @@ document.addEventListener('DOMContentLoaded', () => {
         
         // RELATIVE PATH: We are in 'src/js/', and the destination is 'src/templates/dashboard.html'
         // We must go UP one directory (..) to 'src/', then INTO 'templates/'
-        const DASHBOARD_URL = '../templates/student_dashboard.html';
-        
-        console.log(`Redirecting to: ${DASHBOARD_URL}`);
-        window.location.href = DASHBOARD_URL;
-        
+        const DASHBOARD_URL =
+        loginType === 'Admin'
+            ? './templates/admin/admin_complaints.html'
+            : './templates/student/student_dashboard.html';
+    
+    window.location.href = DASHBOARD_URL;
+    
         // Note: For a real Admin login, you would redirect to a separate admin page.
         // For simplicity, both are redirecting to the main dashboard for now.
     });

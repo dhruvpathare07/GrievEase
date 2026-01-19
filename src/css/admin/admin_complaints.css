@@ -55,7 +55,13 @@
 .table-card tr:hover {
     background-color: var(--hover-bg);
 }
+.clickable-row {
+    cursor: pointer;
+}
 
+.clickable-row:hover {
+    background-color: var(--bg-color);
+}
 /* ===== BADGES ===== */
 .badge {
     padding: 5px 12px;

@@ -52,23 +52,7 @@
     background-color: var(--bg-color);
 }
 
-/* Status Badges */
-.status-badge {
-    padding: 5px 12px;
-    border-radius: 20px;
-    font-size: 12px;
-    font-weight: 600;
-}
 
-.status-badge.submitted {
-    background-color: #DBEAFE;
-    color: #1D4ED8;
-}
-
-.status-badge.resolved {
-    background-color: #DCFCE7;
-    color: #166534;
-}
 
 /* Responsive: Mobile */
 @media (max-width: 768px) {

@@ -273,3 +273,43 @@ body {
         font-size: 14px;
     }
 }
+/* ===== STATUS BADGES ===== */
+
+.status-badge,
+.badge {
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    display: inline-block;
+}
+
+/* Submitted – neutral */
+.submitted {
+    background-color: #E5E7EB;
+    color: #374151;
+}
+
+/* In Review – informative */
+.in-review {
+    background-color: #DBEAFE;
+    color: #1D4ED8;
+}
+
+/* In Progress – warning / active */
+.in-progress {
+    background-color: #FEF3C7;
+    color: #92400E;
+}
+
+/* Resolved – success */
+.resolved {
+    background-color: #DCFCE7;
+    color: #166534;
+}
+
+/* Rejected – danger */
+.rejected {
+    background-color: #FEE2E2;
+    color: #991B1B;
+}
