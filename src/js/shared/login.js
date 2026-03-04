@@ -56,21 +56,37 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log(`--- Simulated Login Attempt ---`);
         console.log(`Login Type: ${loginType}`);
         console.log(`Username: ${username}`);
-        console.log('Bypass: Assuming successful authentication...');
-        
-        // **--- NAVIGATION BYPASS ---**
-        // Since we are running on the frontend without a server, we skip authentication
-        // and immediately redirect to the dashboard.
-        
-        // RELATIVE PATH: We are in 'src/js/', and the destination is 'src/templates/dashboard.html'
-        // We must go UP one directory (..) to 'src/', then INTO 'templates/'
-        const DASHBOARD_URL =
-        loginType === 'Admin'
-            ? './templates/admin/admin_complaints.html'
-            : './templates/student/student_dashboard.html';
-    
-    window.location.href = DASHBOARD_URL;
-    
+        fetch("http://localhost:5000/api/auth/login", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+              email: username,   // your input allows email
+              password: password
+            })
+          })
+            .then(res => res.json())
+            .then(data => {
+              if (data.token) {
+                // ✅ Store token
+                localStorage.setItem("token", data.token);
+                localStorage.setItem("role", data.role);
+          
+                // ✅ Redirect based on role
+                if (data.role === "admin") {
+                  window.location.href = "./templates/admin/admin_complaints.html";
+                } else {
+                  window.location.href = "./templates/student/student_dashboard.html";
+                }
+              } else {
+                alert(data.message || "Login failed");
+              }
+            })
+            .catch(err => {
+              console.error(err);
+              alert("Server error. Please try again.");
+            });          
         // Note: For a real Admin login, you would redirect to a separate admin page.
         // For simplicity, both are redirecting to the main dashboard for now.
     });
@@ -108,3 +124,59 @@ if (backToLoginLink) {
 }
 
 });
+// ===== REGISTER FORM SUBMIT =====
+const registerForm = document.getElementById("register-form");
+
+if (registerForm) {
+  registerForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    const name = document.getElementById("reg-name").value;
+    const email = document.getElementById("reg-email").value;
+    const password = document.getElementById("reg-password").value;
+    const confirmPassword = document.getElementById("reg-confirm-password").value;
+
+    // Basic validation
+    if (!name || !email || !password || !confirmPassword) {
+      alert("Please fill all fields.");
+      return;
+    }
+
+    if (password !== confirmPassword) {
+      alert("Passwords do not match.");
+      return;
+    }
+
+    // Send data to backend
+    fetch("http://localhost:5000/api/auth/register", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        name: name,
+        email: email,
+        password: password,
+        role: "student"
+      })
+    })
+      .then(res => res.json())
+      .then(data => {
+        if (data.userId) {
+          alert("Registration successful! Please login.");
+
+          // Switch back to login form
+          registerForm.classList.add("hidden");
+          loginFormEl.classList.remove("hidden");
+
+          registerForm.reset();
+        } else {
+          alert(data.message || "Registration failed.");
+        }
+      })
+      .catch(err => {
+        console.error(err);
+        alert("Server error. Please try again.");
+      });
+  });
+}

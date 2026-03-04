@@ -88,3 +88,54 @@
     font-size: 16px;
     cursor: pointer;
 }
+.status-badge {
+  padding: 6px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.badge-submitted {
+  background: #9e9e9e;
+  color: white;
+}
+
+.badge-review {
+  background: #ff9800;
+  color: white;
+}
+
+.badge-progress {
+  background: #2196f3;
+  color: white;
+}
+
+.badge-resolved {
+  background: #4caf50;
+  color: white;
+}
+
+.badge-rejected {
+  background: #f44336;
+  color: white;
+}
+
+.priority-badge {
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 11px;
+  text-transform: capitalize;
+}
+
+.priority-low {
+  background: #c8e6c9;
+}
+
+.priority-medium {
+  background: #ffe082;
+}
+
+.priority-high {
+  background: #ffab91;
+}

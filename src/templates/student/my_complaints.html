@@ -65,7 +65,7 @@
                 <!-- Search Bar -->
                 <div class="filter-bar">
                     <input type="text" placeholder="Search by Complaint ID">
-                    
+
                     <!-- Categories Filter -->
                     <select>
                         <option value="">All Categories</option>
@@ -74,7 +74,7 @@
                         <option value="lost_found">Lost & Found</option>
                         <option value="safety">Safety</option>
                         <option value="other">Other</option>
-                    </select>                    
+                    </select>
 
                     <!-- Status Filter -->
                     <select>
@@ -96,7 +96,7 @@
                 <!-- Complaints Table (Desktop) -->
                 <div class="table-wrapper">
                     <table class="complaints-table">
-                   <!-- Complaints Table header (Desktop) -->
+                        <!-- Complaints Table header (Desktop) -->
                         <thead>
                             <tr>
                                 <th>Complaint ID</th>
@@ -106,64 +106,17 @@
                                 <th>Status</th>
                             </tr>
                         </thead>
-                   <!-- Complaints Table Rows (Desktop) -->
-                        <tbody>
-                            <tr class="clickable-row">
-                                <td>GRV-2025-0012</td>
-                                <td>Academic</td>
-                                <td>Delay in internal marks update</td>
-                                <td>12 Jan 2025</td>
-                                <td>
-                                    <span class="status-badge submitted">Submitted</span>
-                                </td>
-                            </tr>
-                        
-                            <tr class="clickable-row">
-                                <td>GRV-2025-0015</td>
-                                <td>Infrastructure</td>
-                                <td>Water supply issue</td>
-                                <td>10 Jan 2025</td>
-                                <td>
-                                    <span class="status-badge in-review">In Review</span>
-                                </td>
-                            </tr>
-                        
-                            <tr class="clickable-row">
-                                <td>GRV-2025-0018</td>
-                                <td>Lost & Found</td>
-                                <td>Lost ID card</td>
-                                <td>08 Jan 2025</td>
-                                <td>
-                                    <span class="status-badge in-progress">In Progress</span>
-                                </td>
-                            </tr>
-                        
-                            <tr class="clickable-row">
-                                <td>GRV-2025-0009</td>
-                                <td>Infrastructure</td>
-                                <td>Room light not working</td>
-                                <td>05 Jan 2025</td>
-                                <td>
-                                    <span class="status-badge resolved">Resolved</span>
-                                </td>
-                            </tr>
-                        
-                            <tr class="clickable-row">
-                                <td>GRV-2025-0004</td>
-                                <td>Safety</td>
-                                <td>Unauthorized entry concern</td>
-                                <td>02 Jan 2025</td>
-                                <td>
-                                    <span class="status-badge rejected">Rejected</span>
-                                </td>
-                            </tr>
-                        </tbody>                                                    
+                        <!-- Complaints Table Rows (Desktop) -->
+                        <tbody id="complaints-body">
+                            <!-- Complaints will load dynamically here -->
+                        </tbody>
                     </table>
                 </div>
 
             </main>
         </div>
     </div>
-
+<script src="../../js/student/my_complaints.js"></script>
 </body>
+
 </html>

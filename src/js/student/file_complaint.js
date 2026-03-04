@@ -1,68 +1,54 @@
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener("DOMContentLoaded", () => {
 
-    const form = document.getElementById('complaint-form');
-    const imageInput = document.getElementById('attachment');
-    const previewContainer = document.getElementById('image-preview');
-    const previewImg = document.getElementById('preview-img');
+  const form = document.getElementById("complaint-form");
 
-    /**
-     * IMAGE PREVIEW LOGIC
-     * This runs only on frontend and does NOT affect backend upload
-     */
-    imageInput.addEventListener('change', () => {
-        const file = imageInput.files[0];
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
 
-        if (!file) {
-            previewContainer.classList.add('hidden');
-            return;
-        }
+    const token = localStorage.getItem("token");
 
-        // Basic client-side validation
-        if (!file.type.startsWith('image/')) {
-            alert('Please upload a valid image file.');
-            imageInput.value = '';
-            return;
-        }
+    if (!token) {
+      window.location.href = "../../index.html";
+      return;
+    }
 
-        const reader = new FileReader();
-        reader.onload = () => {
-            previewImg.src = reader.result;
-            previewContainer.classList.remove('hidden');
-        };
-        reader.readAsDataURL(file);
-    });
+    const category = document.getElementById("category").value;
+    const title = document.getElementById("subject").value;
+    const description = document.getElementById("description").value;
 
-    /**
-     * FORM SUBMISSION (BACKEND READY)
-     * Replace console logs with API call later
-     */
-    form.addEventListener('submit', (e) => {
-        e.preventDefault();
+    if (!category || !title || !description) {
+      alert("Please fill all required fields.");
+      return;
+    }
 
-        // Prepare form data for backend
-        const formData = new FormData(form);
+    try {
+      const response = await fetch("http://localhost:5000/api/complaints", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": "Bearer " + token
+        },
+        body: JSON.stringify({
+          title: title,
+          description: description,
+          category: category
+        })
+      });
 
-        // DEBUG ONLY (remove later)
-        console.log('--- Complaint Submission ---');
-        for (let [key, value] of formData.entries()) {
-            console.log(key, value);
-        }
+      const data = await response.json();
 
-        /**
-         * FUTURE BACKEND INTEGRATION
-         * 
-         * fetch('/api/complaints', {
-         *   method: 'POST',
-         *   headers: {
-         *     'Authorization': 'Bearer <JWT_TOKEN>'
-         *   },
-         *   body: formData
-         * })
-         */
+      if (response.ok) {
+        alert("Complaint submitted successfully!");
+        window.location.href = "./my_complaints.html";
+      } else {
+        alert(data.message || "Submission failed");
+      }
 
-        alert('Complaint submitted successfully (simulated).');
-        form.reset();
-        previewContainer.classList.add('hidden');
-    });
+    } catch (error) {
+      console.error("Error submitting complaint:", error);
+      alert("Server error. Try again later.");
+    }
+
+  });
 
 });
