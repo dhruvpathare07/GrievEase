@@ -28,8 +28,16 @@
     <header class="dashboard-header">
         <h1 class="header-title">Track Complaint Status</h1>
         <div class="user-info">
-            <span id="student-name">Alex Johnson</span>
-        </div>
+
+                <div class="user-avatar" id="user-avatar">A</div>
+
+                <span id="student-name">Welcome</span>
+
+                <button class="logout-btn mobile-logout" id="logout-btn-mobile">
+                    <i class="fas fa-sign-out-alt"></i>
+                </button>
+
+            </div>
     </header>
 
     <div class="main-layout">
@@ -40,7 +48,7 @@
                 <i class="fas fa-home"></i> <span>Dashboard</span>
             </a>
 
-            <a href="#" class="nav-item">
+            <a href="./profile.html" class="nav-item">
                 <i class="fas fa-user"></i> <span>My Profile</span>
             </a>
 
@@ -65,22 +73,6 @@
 
         <!-- ===== MAIN CONTENT ===== -->
         <main class="dashboard-content">
-
-            <!-- ===== SEARCH CARD ===== -->
-            <div class="card search-card">
-                <h2>🔍 Track Your Complaint</h2>
-                <p>Enter your Complaint ID to check the current status.</p>
-
-                <div class="search-box">
-                    <input type="text" placeholder="Enter Complaint ID (e.g., GE-2026-0142)">
-                    <button class="primary-btn">Check Status</button>
-                </div>
-
-                <small class="helper-text">
-                    You can find your Complaint ID on the <strong>My Complaints</strong> page.
-                </small>
-            </div>
-
             <!-- ===== COMPLAINT SUMMARY ===== -->
             <div class="card summary-card">
                 <div class="summary-header">
@@ -112,7 +104,7 @@
             <div class="card timeline-card">
                 <h3>📌 Complaint Progress</h3>
 
-                <ul class="timeline">
+                <ul class="timeline" id="timeline">
                     <li class="completed">
                         <i class="fas fa-check-circle"></i>
                         <div>
@@ -157,5 +149,6 @@
         </main>
     </div>
 </div>
+<script src="../../js/student/track_status.js"></script>
 </body>
 </html>

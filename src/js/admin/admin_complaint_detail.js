@@ -1,217 +1,235 @@
 document.addEventListener("DOMContentLoaded", async () => {
 
-  const token = localStorage.getItem("token");
-  const role = localStorage.getItem("role");
+const token = localStorage.getItem("token");
+const role = localStorage.getItem("role");
 
-  if (!token || role !== "admin") {
-    window.location.href = "../../index.html";
-    return;
-  }
+if (!token || role !== "admin") {
+window.location.href="../../index.html";
+return;
+}
 
-  const params = new URLSearchParams(window.location.search);
-  const complaintId = params.get("id");
+const params = new URLSearchParams(window.location.search);
+const complaintId = params.get("id");
 
-  if (!complaintId) {
-    alert("No complaint ID provided");
-    return;
-  }
+if (!complaintId) {
+alert("No complaint ID provided");
+return;
+}
 
-  let complaintData = null;
+let complaintData=null;
 
-  try {
-    const response = await fetch(
-      `http://localhost:5000/api/complaints/${complaintId}`,
-      {
-        headers: { Authorization: "Bearer " + token }
-      }
-    );
+try{
 
-    complaintData = await response.json();
+const response=await fetch(
+`http://localhost:5000/api/complaints/${complaintId}`,
+{
+headers:{Authorization:"Bearer "+token}
+}
+);
 
-    // ===== SUMMARY SECTION =====
-    document.querySelector(".summary-header h2").textContent =
-      complaintData.title;
+complaintData=await response.json();
 
-    const badge = document.querySelector(".summary-header .badge");
-    badge.textContent = formatStatusText(complaintData.status);
-    badge.className = `status-badge ${getStatusClass(complaintData.status)}`;
+populateComplaint(complaintData);
 
-    const values = document.querySelectorAll(".summary-grid .value");
+}catch(error){
+console.error("Error loading complaint:",error);
+}
 
-    values[0].textContent =
-      complaintData._id.slice(-6).toUpperCase();
+const saveBtn=document.querySelector(".save-btn");
 
-    values[1].textContent = complaintData.category;
+saveBtn.addEventListener("click", async ()=>{
 
-    values[2].textContent =
-      complaintData.student?.name || "N/A";
+const updatedStatus=document.getElementById("status-select").value;
+const updatedPriority=document.getElementById("priority-select").value;
+const internalRemarks=document.getElementById("internal-remarks").value;
+const publicResponse=document.getElementById("public-response").value;
 
-    values[3].textContent =
-      new Date(complaintData.createdAt)
-        .toLocaleDateString("en-GB");
+saveBtn.disabled=true;
+saveBtn.innerHTML="Saving...";
 
-    document.querySelector(".description-text").textContent =
-      complaintData.description;
+try{
 
-    // ===== ATTACHMENT =====
-    if (!complaintData.attachment) {
-      const attachmentDiv = document.querySelector(".attachment");
-      if (attachmentDiv) attachmentDiv.style.display = "none";
-    }
+const response=await fetch(
+`http://localhost:5000/api/complaints/${complaintId}`,
+{
+method:"PUT",
+headers:{
+"Content-Type":"application/json",
+Authorization:"Bearer "+token
+},
+body:JSON.stringify({
+status:updatedStatus,
+priority:updatedPriority,
+internalRemarks,
+publicResponse
+})
+}
+);
 
-    // ===== PREFILL DROPDOWNS =====
-    const statusSelect = document.getElementById("status-select");
-    statusSelect.value = complaintData.status;
+if(response.ok){
 
-    const prioritySelect = document.getElementById("priority-select");
-    prioritySelect.value = complaintData.priority;
+alert("Complaint updated successfully");
+location.reload();
 
-    // ===== PREFILL REMARKS =====
-    const textareas = document.querySelectorAll("textarea");
-    textareas[0].value = complaintData.internalRemarks || "";
-    textareas[1].value = complaintData.publicResponse || "";
+}else{
 
-    // ===== BUILD TIMELINE =====
-    buildTimeline(complaintData.statusHistory);
+alert("Update failed");
 
-    // ===== SAVE BUTTON =====
-    const saveBtn =
-      document.querySelector(".action-card .primary-btn");
+}
 
-    saveBtn.addEventListener("click", async () => {
+}catch(err){
 
-      const updatedStatus = statusSelect.value;
-      const updatedPriority = prioritySelect.value;
-      const internalRemarks = textareas[0].value;
-      const publicResponse = textareas[1].value;
+console.error(err);
+alert("Server error");
 
-      const updateResponse = await fetch(
-        `http://localhost:5000/api/complaints/${complaintId}`,
-        {
-          method: "PUT",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: "Bearer " + token
-          },
-          body: JSON.stringify({
-            status: updatedStatus,
-            priority: updatedPriority,
-            internalRemarks,
-            publicResponse
-          })
-        }
-      );
+}
 
-      if (updateResponse.ok) {
-        alert("Complaint updated successfully");
-        location.reload();
-      } else {
-        alert("Update failed");
-      }
-
-    });
-
-  } catch (error) {
-    console.error("Error loading complaint:", error);
-  }
+saveBtn.disabled=false;
+saveBtn.innerHTML='<i class="fas fa-save"></i> Save Changes';
 
 });
 
-function gbuildTimeline(history) {
+});
 
-  const timeline = document.querySelector(".timeline");
-  timeline.innerHTML = "";
 
-  if (!history || history.length === 0) return;
+function populateComplaint(data){
 
-  const stageOrder = [
-    "submitted",
-    "under_review",
-    "in_progress",
-    "resolved",
-    "rejected"
-  ];
+document.getElementById("complaint-title").textContent=data.title;
 
-  // Current final status
-  const finalStatus = history[history.length - 1].status;
+const badge=document.getElementById("status-badge");
+badge.textContent=formatStatusText(data.status);
+badge.className=`status-badge ${getStatusClass(data.status)}`;
 
-  // Get index of final status
-  const finalIndex = stageOrder.indexOf(finalStatus);
+document.getElementById("complaint-id").textContent=
+data._id.slice(-6).toUpperCase();
 
-  stageOrder.forEach((stage, index) => {
+document.getElementById("complaint-category").textContent=data.category;
 
-    const li = document.createElement("li");
+document.getElementById("student-name").textContent=
+data.student?.name || "N/A";
 
-    const entry = history.find(h => h.status === stage);
+document.getElementById("created-date").textContent=
+new Date(data.createdAt).toLocaleDateString("en-GB");
 
-    // ===== COMPLETION LOGIC =====
-    if (finalStatus === "rejected") {
-      // Stop progression at rejected
-      if (index <= finalIndex) {
-        li.classList.add("completed");
-      }
-    } else {
-      // Normal progression (submitted → resolved)
-      if (index <= finalIndex) {
-        li.classList.add("completed");
-      }
-    }
+document.getElementById("complaint-description").textContent=data.description;
 
-    // ===== ACTIVE STAGE LOGIC =====
-    if (stage === finalStatus &&
-        (stage === "under_review" || stage === "in_progress")) {
-      li.classList.add("active");
-    }
-
-    // ===== ICON LOGIC =====
-    let iconClass = "fa-circle";
-
-    if (stage === finalStatus &&
-        (stage === "under_review" || stage === "in_progress")) {
-      iconClass = "fa-spinner fa-spin";
-    }
-    else if (index <= finalIndex) {
-      iconClass = "fa-check-circle";
-    }
-
-    // ===== DATE DISPLAY =====
-    let dateHTML = "";
-
-    if (entry) {
-      dateHTML = `<span>${new Date(entry.changedAt)
-        .toLocaleDateString("en-GB")}</span>`;
-    }
-
-    li.innerHTML = `
-      <i class="fas ${iconClass}"></i>
-      <div>
-        <strong>${formatStatusText(stage)}</strong>
-        ${dateHTML}
-      </div>
-    `;
-
-    timeline.appendChild(li);
-  });
-}
-function formatStatusText(status) {
-  return status
-    .replace("_", " ")
-    .replace(/\b\w/g, c => c.toUpperCase());
+if(!data.attachment){
+document.getElementById("attachment-section").style.display="none";
+}else{
+document.getElementById("attachment-name").textContent=data.attachment;
 }
 
-function getStatusClass(status) {
-  switch (status) {
-    case "submitted":
-      return "badge-submitted";
-    case "under_review":
-      return "badge-review";
-    case "in_progress":
-      return "badge-progress";
-    case "resolved":
-      return "badge-resolved";
-    case "rejected":
-      return "badge-rejected";
-    default:
-      return "";
-  }
+document.getElementById("status-select").value=data.status;
+document.getElementById("priority-select").value=data.priority;
+
+document.getElementById("internal-remarks").value=data.internalRemarks || "";
+document.getElementById("public-response").value=data.publicResponse || "";
+
+buildTimeline(data.statusHistory);
+
+}
+
+
+function buildTimeline(history){
+
+const timeline=document.querySelector(".timeline");
+timeline.innerHTML="";
+
+if(!history || history.length===0) return;
+
+const finalStatus=history[history.length-1].status;
+
+let stageOrder=[];
+
+if(finalStatus==="rejected"){
+
+stageOrder=[
+"submitted",
+"under_review",
+"rejected"
+];
+
+}else{
+
+stageOrder=[
+"submitted",
+"under_review",
+"in_progress",
+"resolved"
+];
+
+}
+
+stageOrder.forEach(stage=>{
+
+const entry=history.find(h=>h.status===stage);
+
+const li=document.createElement("li");
+
+if(entry){
+li.classList.add("completed");
+}
+
+if(stage===finalStatus &&
+(stage==="under_review" || stage==="in_progress")){
+li.classList.remove("completed");
+li.classList.add("active");
+}
+
+let icon="fa-circle";
+
+if(stage===finalStatus &&
+(stage==="under_review" || stage==="in_progress")){
+icon="fa-spinner fa-spin";
+}
+else if(entry){
+icon="fa-check-circle";
+}
+
+li.innerHTML=`
+<i class="fas ${icon}"></i>
+<div>
+<strong>${formatStatusText(stage)}</strong>
+${entry ? `<span>${new Date(entry.changedAt).toLocaleDateString("en-GB")}</span>` : ""}
+</div>
+`;
+
+timeline.appendChild(li);
+
+});
+
+}
+
+
+function formatStatusText(status){
+return status
+.replace("_"," ")
+.replace(/\b\w/g,c=>c.toUpperCase());
+}
+
+
+function getStatusClass(status){
+
+switch(status){
+
+case "submitted":
+return "badge-submitted";
+
+case "under_review":
+return "badge-review";
+
+case "in_progress":
+return "badge-progress";
+
+case "resolved":
+return "badge-resolved";
+
+case "rejected":
+return "badge-rejected";
+
+default:
+return "";
+
+}
+
 }

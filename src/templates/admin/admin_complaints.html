@@ -1,129 +1,144 @@
 <!-- admin_complaint.html -->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Complaint Management - GrievEase Admin</title>
 
-    <!-- Fonts & Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
-    <!-- Theme Engine -->
     <script src="../../js/shared/theme-engine.js" defer></script>
     <script src="../../js/shared/dashboard.js" defer></script>
 
-    <!-- Shared Dashboard Styles -->
     <link rel="stylesheet" href="../../css/shared/dashboard.css">
-
-    <!-- Admin Page Styles -->
     <link rel="stylesheet" href="../../css/admin/admin_complaints.css">
 </head>
 
 <body>
-<div class="dashboard-wrapper">
 
-    <!-- ===== HEADER ===== -->
-    <header class="dashboard-header">
-        <h1 class="header-title">Complaint Management</h1>
-        <div class="user-info">
-            <span>Admin Panel</span>
-        </div>
-    </header>
+    <div class="dashboard-wrapper">
 
-    <div class="main-layout">
-
-        <!-- ===== SIDEBAR ===== -->
-        <aside class="sidebar-nav">
-            <a href="./admin_dashboard.html" class="nav-item">
-                <i class="fas fa-chart-line"></i> <span>Dashboard</span>
-            </a>
-
-            <a href="#" class="nav-item active">
-                <i class="fas fa-folder-open"></i> <span>Complaints</span>
-            </a>
-
-            <div class="nav-item nav-parent" id="theme-parent">
-                <i class="fas fa-cog"></i> <span>Theme</span>
-                <i class="fas fa-chevron-right arrow-icon"></i>
+        <header class="dashboard-header">
+            <h1 class="header-title">Complaint Management</h1>
+            <div class="user-info">
+                <span>Admin Panel</span>
             </div>
+        </header>
 
-            <div class="theme-submenu" id="theme-submenu">
-                <button class="nav-sub-item" id="theme-light"><i class="fas fa-sun"></i> Light</button>
-                <button class="nav-sub-item" id="theme-dark"><i class="fas fa-moon"></i> Dark</button>
-            </div>
+        <div class="main-layout">
 
-            <a href="#" class="nav-item logout-sidebar-btn">
-                <i class="fas fa-sign-out-alt"></i> <span>Logout</span>
-            </a>
-        </aside>
+            <!-- SIDEBAR -->
+            <aside class="sidebar-nav">
 
-        <!-- ===== MAIN CONTENT ===== -->
-        <main class="dashboard-content">
+                <a href="./admin_dashboard.html" class="nav-item">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Dashboard</span>
+                </a>
 
-            <!-- ===== FILTER BAR ===== -->
-            <div class="card filter-card">
-                <div class="filters">
+                <a href="#" class="nav-item active">
+                    <i class="fas fa-folder-open"></i>
+                    <span>Complaints</span>
+                </a>
 
-                    <!-- Search by Complaint ID -->
-                    <input type="text" placeholder="Search Complaint ID">
+                <a href="./admin_notes.html" class="nav-item">
+                    <i class="fas fa-sticky-note"></i>
+                    <span>Admin Notes</span>
+                </a>
 
-                    <!-- Filter by Category -->
-                    <select>
-                        <option value="">All Categories</option>
-                        <option>Academic</option>
-                        <option>Infrastructure</option>
-                        <option>Lost & Found</option>
-                        <option>Safety</option>
-                        <option>Other</option>
-                    </select>
-                    
-
-                    <!-- Filter by Status -->
-                    <select>
-                        <option value="">All Status</option>
-                        <option>Submitted</option>
-                        <option>In Review</option>
-                        <option>In Progress</option>
-                        <option>Resolved</option>
-                        <option>Rejected</option>
-                    </select>
-                    
-
-                    <!-- Filter by Date -->
-                    <input type="date">
-
-                    <button class="primary-btn">
-                        <i class="fas fa-filter"></i> Apply
-                    </button>
+                <div class="nav-item nav-parent" id="theme-parent">
+                    <i class="fas fa-cog"></i>
+                    <span>Theme</span>
+                    <i class="fas fa-chevron-right arrow-icon"></i>
                 </div>
-            </div>
 
-            <!-- ===== COMPLAINTS TABLE ===== -->
-            <div class="card table-card">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Complaint ID</th>
-                            <th>Category</th>
-                            <th>Title</th>
-                            <th>Student</th>
-                            <th>Date</th>
-                            <th>Status</th>
-                            <th>Priority</th>
-                        </tr>
-                    </thead>
+                <div class="theme-submenu" id="theme-submenu">
+                    <button class="nav-sub-item" id="theme-light"><i class="fas fa-sun"></i> Light</button>
+                    <button class="nav-sub-item" id="theme-dark"><i class="fas fa-moon"></i> Dark</button>
+                </div>
 
-                    <tbody id="admin-complaints-body">
-                        <!-- Complaints will load dynamically -->
-                    </tbody>
-                </table>
-            </div>
+                <a href="#" class="nav-item logout-sidebar-btn" id="logout-sidebar-btn">
+<i class="fas fa-sign-out-alt"></i> <span>Logout</span>
+</a>
 
-        </main>
+            </aside>
+
+            <!-- MAIN -->
+            <main class="dashboard-content">
+
+                <!-- FILTER BAR -->
+                <div class="card filter-card">
+
+                    <div class="filters">
+
+                        <input id="searchId" type="text" placeholder="Search Complaint ID">
+
+                        <select id="filterCategory">
+                            <option value="">All Categories</option>
+                            <option value="academic">Academic</option>
+                            <option value="infrastructure">Infrastructure</option>
+                            <option value="hostel">Hostel</option>
+                            <option value="other">Other</option>
+                        </select>
+
+                        <select id="filterStatus">
+                            <option value="">All Status</option>
+                            <option value="submitted">Submitted</option>
+                            <option value="under_review">Under Review</option>
+                            <option value="in_progress">In Progress</option>
+                            <option value="resolved">Resolved</option>
+                            <option value="rejected">Rejected</option>
+                        </select>
+
+                        <select id="filterPriority">
+                            <option value="">All Priority</option>
+                            <option value="high">High</option>
+                            <option value="medium">Medium</option>
+                            <option value="low">Low</option>
+                        </select>
+
+                        <input id="filterDate" type="date">
+
+                        <button class="primary-btn" id="applyFilters">
+                            <i class="fas fa-filter"></i> Apply
+                        </button>
+
+                    </div>
+
+                </div>
+
+                <!-- TABLE -->
+                <div class="card table-card">
+
+                    <table>
+
+                        <thead>
+                            <tr>
+                                <th>Complaint ID</th>
+                                <th>Category</th>
+                                <th>Title</th>
+                                <th>Student</th>
+                                <th>Date</th>
+                                <th>Status</th>
+                                <th>Priority</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="admin-complaints-body"></tbody>
+
+                    </table>
+
+                </div>
+
+            </main>
+        </div>
     </div>
-</div>
-<script src="../../js/admin/admin_complaints.js"></script>
+
+    <script src="../../js/admin/admin_complaints.js"></script>
+
 </body>
+
 </html>

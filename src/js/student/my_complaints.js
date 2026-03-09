@@ -31,10 +31,16 @@ document.addEventListener("DOMContentLoaded", async () => {
       return;
     }
 
-    data.complaints.forEach((complaint) => {
+data.complaints.forEach((complaint) => {
 
-      const row = document.createElement("tr");
-      row.classList.add("clickable-row");
+  const row = document.createElement("tr");
+  row.classList.add("clickable-row");
+
+  // Open Track Status page
+  row.addEventListener("click", () => {
+    window.location.href =
+      `./track_status.html?id=${complaint._id}`;
+  }); 
 
       const formattedDate = new Date(complaint.createdAt)
         .toLocaleDateString();

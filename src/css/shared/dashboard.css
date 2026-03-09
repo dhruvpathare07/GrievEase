@@ -313,3 +313,23 @@ body {
     background-color: #FEE2E2;
     color: #991B1B;
 }
+/* ===== USER AVATAR ===== */
+
+.user-avatar {
+    width: 36px;
+    height: 36px;
+
+    border-radius: 50%;
+
+    background-color: var(--primary-blue);
+    color: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-weight: 600;
+    font-size: 16px;
+
+    text-transform: uppercase;
+}

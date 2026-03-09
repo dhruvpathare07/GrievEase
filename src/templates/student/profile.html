@@ -4,13 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Dashboard - Grievance Portal</title>
+    <title>My Profile - Grievance Portal</title>
+
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
     <link rel="stylesheet" href="../../css/shared/dashboard.css">
+    <link rel="stylesheet" href="../../css/student/profile.css">
+
     <script src="../../js/shared/theme-engine.js" defer></script>
     <script src="../../js/shared/dashboard.js" defer></script>
+    <script src="../../js/student/profile.js" defer></script>
+
 </head>
 
 <body>
@@ -18,7 +23,8 @@
     <div class="dashboard-wrapper">
 
         <header class="dashboard-header">
-            <h1 class="header-title">Student Dashboard</h1>
+            <h1 class="header-title">My Profile</h1>
+
             <div class="user-info">
 
                 <div class="user-avatar" id="user-avatar">A</div>
@@ -32,14 +38,17 @@
             </div>
         </header>
 
+
         <div class="main-layout">
 
+            <!-- SIDEBAR -->
             <aside class="sidebar-nav">
-                <a href="./student_dashboard.html" class="nav-item active">
+
+                <a href="./student_dashboard.html" class="nav-item">
                     <i class="fas fa-home"></i> Dashboard
                 </a>
 
-                <a href="./profile.html" class="nav-item">
+                <a href="./profile.html" class="nav-item active">
                     <i class="fas fa-user"></i> My Profile
                 </a>
 
@@ -52,6 +61,7 @@
                     <button class="nav-sub-item" id="theme-light">
                         <i class="fas fa-sun"></i> Light
                     </button>
+
                     <button class="nav-sub-item" id="theme-dark">
                         <i class="fas fa-moon"></i> Dark
                     </button>
@@ -67,39 +77,63 @@
 
             </aside>
 
+
+            <!-- MAIN CONTENT -->
             <main class="dashboard-content">
-                <p class="welcome-note">Submit, view, or track your complaints easily.</p>
 
-                <div class="card-grid">
+                <div class="profile-card">
 
-                    <a href="./file_complaint.html" class="action-card">
-                        <i class="fas fa-file-alt card-icon"></i>
-                        <h3 class="card-title">📝 File a Complaint</h3>
-                        <p class="card-description">Submit a new grievance or suggestion to the college administration.
+                    <div class="avatar" id="avatar-letter">A</div>
+
+                    <div class="profile-details">
+                        <h2 id="profile-name">Student Name</h2>
+
+                        <p class="profile-info">
+                            <i class="fas fa-id-card"></i>
+                            <span id="profile-id">Student ID</span>
                         </p>
-                        <span class="card-link-btn">Start New Complaint <i class="fas fa-arrow-right"></i></span>
-                    </a>
 
-                    <a href="./my_complaints.html" class="action-card">
-                        <i class="fas fa-list-alt card-icon"></i>
-                        <h3 class="card-title">📁 My Complaints</h3>
-                        <p class="card-description">View a list of all your submitted grievances and their details.</p>
-                        <span class="card-link-btn">View All <i class="fas fa-arrow-right"></i></span>
-                    </a>
+                        <p class="profile-info">
+                            <i class="fas fa-envelope"></i>
+                            <span id="profile-email">student@email.com</span>
+                        </p>
 
-                    <a href="./track_status.html" class="action-card">
-                        <i class="fas fa-history card-icon"></i>
-                        <h3 class="card-title">🔍 Track Status</h3>
-                        <p class="card-description">Check the current status and progress timeline of any specific
-                            complaint ID.</p>
-                        <span class="card-link-btn">Check Now <i class="fas fa-arrow-right"></i></span>
-                    </a>
+                    </div>
 
                 </div>
+
+
+                <!-- STATS -->
+                <div class="stats-grid">
+
+                    <div class="stat-box">
+                        <h3>Total Complaints</h3>
+                        <p id="totalComplaints">0</p>
+                    </div>
+
+                    <div class="stat-box">
+                        <h3>Resolved</h3>
+                        <p id="resolvedComplaints">0</p>
+                    </div>
+
+                    <div class="stat-box">
+                        <h3>Pending</h3>
+                        <p id="pendingComplaints">0</p>
+                    </div>
+
+                    <div class="stat-box">
+                        <h3>Rejected</h3>
+                        <p id="rejectedComplaints">0</p>
+                    </div>
+
+                </div>
+
             </main>
 
         </div>
+
     </div>
+
 </body>
 
 </html>

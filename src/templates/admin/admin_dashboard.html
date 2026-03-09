@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Dashboard - GrievEase</title>
+
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- Shared Theme + Dashboard -->
+    <script src="../../js/shared/theme-engine.js" defer></script>
+    <script src="../../js/shared/dashboard.js" defer></script>
+
+    <link rel="stylesheet" href="../../css/shared/dashboard.css">
+
+    <!-- Dashboard Specific CSS -->
+    <link rel="stylesheet" href="../../css/admin/admin_dashboard.css">
+
+</head>
+
+<body>
+
+    <div class="dashboard-wrapper">
+
+        <!-- ===== HEADER ===== -->
+        <header class="dashboard-header">
+            <h1 class="header-title">Admin Dashboard</h1>
+
+            <div class="user-info">
+                <span>Admin Panel</span>
+            </div>
+        </header>
+
+
+        <div class="main-layout">
+
+            <!-- ===== SIDEBAR ===== -->
+            <aside class="sidebar-nav">
+
+                <a href="./admin_dashboard.html" class="nav-item active">
+                    <i class="fas fa-chart-line"></i> <span>Dashboard</span>
+                </a>
+
+                <a href="./admin_complaints.html" class="nav-item">
+                    <i class="fas fa-folder-open"></i> <span>Complaints</span>
+                </a>
+                <a href="./admin_notes.html" class="nav-item">
+                    <i class="fas fa-sticky-note"></i> <span>Admin Notes</span>
+                </a>
+
+                <div class="nav-item nav-parent" id="theme-parent">
+                    <i class="fas fa-cog"></i> <span>Theme</span>
+                    <i class="fas fa-chevron-right arrow-icon"></i>
+                </div>
+
+                <div class="theme-submenu" id="theme-submenu">
+                    <button class="nav-sub-item" id="theme-light">
+                        <i class="fas fa-sun"></i> Light
+                    </button>
+
+                    <button class="nav-sub-item" id="theme-dark">
+                        <i class="fas fa-moon"></i> Dark
+                    </button>
+                </div>
+
+                <a href="#" class="nav-item logout-sidebar-btn" id="logout-sidebar-btn">
+<i class="fas fa-sign-out-alt"></i> <span>Logout</span>
+</a>
+
+            </aside>
+
+
+            <!-- ===== MAIN CONTENT ===== -->
+            <main class="dashboard-content">
+                <p class="dashboard-subtitle">
+                    Overview of complaint activity in the system
+                </p>
+
+                <!-- ===== STATS CARDS ===== -->
+                <div class="stats-grid">
+
+                    <div class="stat-card">
+                        <i class="fas fa-file-alt stat-icon"></i>
+                        <div>
+                            <h3 id="totalComplaints">0</h3>
+                            <p>Total Complaints</p>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <i class="fas fa-hourglass-half stat-icon"></i>
+                        <div>
+                            <h3 id="pendingComplaints">0</h3>
+                            <p>Pending</p>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <i class="fas fa-tools stat-icon"></i>
+                        <div>
+                            <h3 id="progressComplaints">0</h3>
+                            <p>In Progress</p>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <i class="fas fa-check-circle stat-icon"></i>
+                        <div>
+                            <h3 id="resolvedComplaints">0</h3>
+                            <p>Resolved</p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </main>
+
+        </div>
+    </div>
+
+    <script src="../../js/admin/admin_dashboard.js"></script>
+
+</body>
+
+</html>

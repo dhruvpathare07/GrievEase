@@ -109,6 +109,7 @@ exports.updateComplaintStatus = async (req, res) => {
 // 📄 Admin: Get Single Complaint
 exports.getComplaintById = async (req, res) => {
   try {
+
     const complaint = await Complaint.findById(req.params.id)
       .populate("student", "name email");
 
@@ -116,7 +117,15 @@ exports.getComplaintById = async (req, res) => {
       return res.status(404).json({ message: "Complaint not found" });
     }
 
-    res.status(200).json(complaint);
+    // If user is student, ensure they own the complaint
+    if (
+      req.user.role !== "admin" &&
+      complaint.student._id.toString() !== req.user.id
+    ) {
+      return res.status(403).json({ message: "Access denied" });
+    }
+
+    res.json(complaint);
 
   } catch (error) {
     res.status(500).json({ message: error.message });

@@ -72,6 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 // ✅ Store token
                 localStorage.setItem("token", data.token);
                 localStorage.setItem("role", data.role);
+                localStorage.setItem("studentName", data.name);
           
                 // ✅ Redirect based on role
                 if (data.role === "admin") {

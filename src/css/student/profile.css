@@ -1,0 +1,90 @@
+/* PROFILE CARD */
+
+.profile-card{
+display:flex;
+align-items:center;
+gap:25px;
+
+background:var(--card-bg);
+padding:30px;
+
+border-radius:12px;
+
+box-shadow:0 4px 15px var(--shadow-color);
+
+margin-bottom:40px;
+}
+
+/* AVATAR */
+
+.avatar{
+width:70px;
+height:70px;
+
+border-radius:50%;
+
+background:var(--primary-blue);
+color:white;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+font-size:28px;
+font-weight:600;
+}
+
+/* PROFILE TEXT */
+
+.profile-details h2{
+margin-bottom:8px;
+}
+
+.profile-info{
+color:var(--text-secondary);
+margin-bottom:6px;
+
+display:flex;
+align-items:center;
+gap:8px;
+}
+
+
+/* STATS GRID */
+
+.stats-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:20px;
+}
+
+/* STAT BOX */
+
+.stat-box{
+background:var(--card-bg);
+padding:25px;
+
+border-radius:12px;
+
+box-shadow:0 4px 15px var(--shadow-color);
+
+text-align:center;
+
+transition:0.3s;
+}
+
+.stat-box:hover{
+transform:translateY(-4px);
+}
+
+.stat-box h3{
+margin-bottom:10px;
+color:var(--text-secondary);
+}
+
+.stat-box p{
+font-size:28px;
+font-weight:700;
+
+color:var(--primary-blue);
+}

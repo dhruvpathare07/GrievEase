@@ -15,7 +15,7 @@ router.get("/my", protect, getMyComplaints);
 
 // Admin
 router.get("/", protect, adminOnly, getAllComplaints);
-router.get("/:id", protect, adminOnly, getComplaintById);
+router.get("/:id", protect, getComplaintById);
 router.put("/:id", protect, adminOnly, updateComplaintStatus);
 
 module.exports = router;

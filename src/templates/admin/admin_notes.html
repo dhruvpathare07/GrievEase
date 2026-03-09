@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Notes - GrievEase</title>
+
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- Shared Theme -->
+    <script src="../../js/shared/theme-engine.js" defer></script>
+    <script src="../../js/shared/dashboard.js" defer></script>
+
+    <!-- Shared Dashboard Styles -->
+    <link rel="stylesheet" href="../../css/shared/dashboard.css">
+
+    <!-- Page Styles -->
+    <link rel="stylesheet" href="../../css/admin/admin_notes.css">
+
+</head>
+
+<body>
+
+    <div class="dashboard-wrapper">
+
+        <header class="dashboard-header">
+            <h1 class="header-title">Admin Notes</h1>
+
+            <div class="user-info">
+                <span>Internal Complaint Notes</span>
+            </div>
+        </header>
+
+
+        <div class="main-layout">
+
+            <!-- ===== SIDEBAR ===== -->
+            <aside class="sidebar-nav">
+
+                <a href="./admin_dashboard.html" class="nav-item">
+                    <i class="fas fa-chart-line"></i> <span>Dashboard</span>
+                </a>
+
+                <a href="./admin_complaints.html" class="nav-item">
+                    <i class="fas fa-folder-open"></i> <span>Complaints</span>
+                </a>
+
+                <a href="./admin_notes.html" class="nav-item active">
+                    <i class="fas fa-sticky-note"></i> <span>Admin Notes</span>
+                </a>
+
+                <div class="nav-item nav-parent" id="theme-parent">
+                    <i class="fas fa-cog"></i> <span>Theme</span>
+                    <i class="fas fa-chevron-right arrow-icon"></i>
+                </div>
+
+                <div class="theme-submenu" id="theme-submenu">
+                    <button class="nav-sub-item" id="theme-light"><i class="fas fa-sun"></i> Light</button>
+                    <button class="nav-sub-item" id="theme-dark"><i class="fas fa-moon"></i> Dark</button>
+                </div>
+
+                <a href="#" class="nav-item logout-sidebar-btn" id="logout-sidebar-btn">
+                    <i class="fas fa-sign-out-alt"></i> <span>Logout</span>
+                </a>
+
+            </aside>
+
+
+            <!-- ===== MAIN CONTENT ===== -->
+            <main class="dashboard-content">
+
+                <div class="card table-card">
+
+                    <h2 class="section-title">Internal Remarks</h2>
+
+                    <table>
+
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Title</th>
+                                <th>Student</th>
+                                <th>Internal Note</th>
+                                <th>Updated</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="notes-body">
+
+                            <tr>
+                                <td colspan="5" style="text-align:center;">Loading notes...</td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </main>
+
+        </div>
+    </div>
+
+    <script src="../../js/admin/admin_notes.js"></script>
+
+</body>
+
+</html>
