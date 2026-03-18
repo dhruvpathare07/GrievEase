@@ -36,7 +36,6 @@ data.complaints.forEach((complaint) => {
   const row = document.createElement("tr");
   row.classList.add("clickable-row");
 
-  // Open Track Status page
   row.addEventListener("click", () => {
     window.location.href =
       `./track_status.html?id=${complaint._id}`;
@@ -45,8 +44,10 @@ data.complaints.forEach((complaint) => {
       const formattedDate = new Date(complaint.createdAt)
         .toLocaleDateString();
 
+      const displayId = complaint.complaintId || complaint._id.slice(-6).toUpperCase();
+
       row.innerHTML = `
-        <td>${complaint._id.slice(-6).toUpperCase()}</td>
+        <td>${displayId}</td>
         <td>${complaint.category}</td>
         <td>${complaint.title}</td>
         <td>${formattedDate}</td>

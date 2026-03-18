@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help & Support - GrievEase</title>
+
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- Shared CSS -->
+    <link rel="stylesheet" href="../../css/shared/dashboard.css">
+    <link rel="stylesheet" href="../../css/student/help_support.css">
+
+    <!-- JS -->
+    <script src="../../js/shared/theme-engine.js" defer></script>
+    <script src="../../js/shared/dashboard.js" defer></script>
+    <script src="../../js/student/help_support.js" defer></script>
+</head>
+
+<body>
+
+    <div class="dashboard-wrapper">
+
+        <!-- HEADER -->
+        <header class="dashboard-header">
+            <h1 class="header-title">Help & Support</h1>
+
+            <div class="user-info">
+                <div class="user-avatar" id="user-avatar">A</div>
+                <span id="student-name">Welcome</span>
+            </div>
+        </header>
+
+        <div class="main-layout">
+
+             <!-- SIDEBAR -->
+           <aside class="sidebar-nav">
+                <a href="./student_dashboard.html" class="nav-item">
+                    <i class="fas fa-home"></i> Dashboard
+                </a>
+
+                <a href="./profile.html" class="nav-item">
+                    <i class="fas fa-user"></i> My Profile
+                </a>
+
+                <div class="nav-item nav-parent" id="theme-parent">
+                    <i class="fas fa-cog"></i> Theme
+                    <i class="fas fa-chevron-right arrow-icon"></i>
+                </div>
+
+                <div class="theme-submenu" id="theme-submenu">
+                    <button class="nav-sub-item" id="theme-light">
+                        <i class="fas fa-sun"></i> Light
+                    </button>
+                    <button class="nav-sub-item" id="theme-dark">
+                        <i class="fas fa-moon"></i> Dark
+                    </button>
+                </div>
+
+                <a href="./help_support.html" class="nav-item active">
+                    <i class="fas fa-question-circle"></i> Help & Support
+                </a>
+
+                <a href="#" class="nav-item logout-sidebar-btn" id="logout-sidebar-btn">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </a>
+
+            </aside>
+            <!-- MAIN CONTENT -->
+            <main class="dashboard-content">
+
+                <!-- INTRO -->
+                <div class="support-header-card">
+                    <h2><i class="fas fa-life-ring"></i> Need Help?</h2>
+                    <p>Find answers to common questions or contact support for assistance regarding your complaints.</p>
+                </div>
+
+                <!-- HOW IT WORKS -->
+                <div class="support-card">
+                    <h3><i class="fas fa-diagram-project"></i> How GrievEase Works</h3>
+
+                    <div class="workflow">
+                        <div class="step">
+                            <i class="fas fa-file-alt"></i>
+                            <p>Submit Complaint</p>
+                        </div>
+
+                        <div class="step">
+                            <i class="fas fa-search"></i>
+                            <p>Under Review</p>
+                        </div>
+
+                        <div class="step">
+                            <i class="fas fa-spinner"></i>
+                            <p>In Progress</p>
+                        </div>
+
+                        <div class="step">
+                            <i class="fas fa-check-circle"></i>
+                            <p>Resolved / Rejected</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ -->
+                <div class="support-card">
+                    <h3><i class="fas fa-question"></i> Frequently Asked Questions</h3>
+
+                    <div class="faq">
+
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                How do I file a complaint?
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer">
+                                Go to the dashboard and click on "File a Complaint". Fill in the required details and submit.
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                How can I track my complaint?
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer">
+                                Navigate to "My Complaints" and click on any complaint to view its timeline and status.
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                What does "In Progress" mean?
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer">
+                                It means your complaint is currently being worked on by the administration.
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                Can I edit my complaint after submission?
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer">
+                                No, once submitted, complaints cannot be edited to maintain authenticity.
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                What if my complaint is rejected?
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer">
+                                You may submit a new complaint with proper details or contact support for clarification.
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- CONTACT -->
+                <div class="support-card contact-card">
+                    <h3><i class="fas fa-headset"></i> Contact Support</h3>
+
+                    <p><i class="fas fa-envelope"></i> support@grievease.com</p>
+                    <p><i class="fas fa-clock"></i> Response within 24–48 hours</p>
+                </div>
+
+                <!-- GUIDELINES -->
+                <div class="support-card warning-card">
+                    <h3><i class="fas fa-exclamation-triangle"></i> Important Guidelines</h3>
+
+                    <ul>
+                        <li>Provide accurate and complete details.</li>
+                        <li>Avoid submitting duplicate complaints.</li>
+                        <li>Do not misuse the system with false reports.</li>
+                        <li>Follow institutional rules while filing grievances.</li>
+                    </ul>
+                </div>
+
+            </main>
+        </div>
+    </div>
+
+</body>
+</html>

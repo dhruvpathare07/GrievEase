@@ -33,24 +33,38 @@
         </header>
 
         <div class="main-layout">
-            <aside class="sidebar-nav">
+            <!-- SIDEBAR -->
+           <aside class="sidebar-nav">
                 <a href="./student_dashboard.html" class="nav-item">
-                    <i class="fas fa-home"></i> <span>Dashboard</span>
+                    <i class="fas fa-home"></i> Dashboard
                 </a>
+
                 <a href="./profile.html" class="nav-item">
-                    <i class="fas fa-user"></i> <span>My Profile</span>
+                    <i class="fas fa-user"></i> My Profile
                 </a>
+
                 <div class="nav-item nav-parent" id="theme-parent">
-                    <i class="fas fa-cog"></i> <span>Theme</span>
+                    <i class="fas fa-cog"></i> Theme
                     <i class="fas fa-chevron-right arrow-icon"></i>
                 </div>
+
                 <div class="theme-submenu" id="theme-submenu">
-                    <button class="nav-sub-item" id="theme-light"><i class="fas fa-sun"></i> Light</button>
-                    <button class="nav-sub-item" id="theme-dark"><i class="fas fa-moon"></i> Dark</button>
+                    <button class="nav-sub-item" id="theme-light">
+                        <i class="fas fa-sun"></i> Light
+                    </button>
+                    <button class="nav-sub-item" id="theme-dark">
+                        <i class="fas fa-moon"></i> Dark
+                    </button>
                 </div>
-                <a href="#" class="nav-item logout-sidebar-btn" id="logout-sidebar-btn">
-                    <i class="fas fa-sign-out-alt"></i> <span>Logout</span>
+
+                <a href="./help_support.html" class="nav-item">
+                    <i class="fas fa-question-circle"></i> Help & Support
                 </a>
+
+                <a href="#" class="nav-item logout-sidebar-btn" id="logout-sidebar-btn">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </a>
+
             </aside>
 
             <main class="dashboard-content">
@@ -75,7 +89,7 @@
                         <!-- Complaint Subject -->
                         <div class="form-group">
                             <label for="subject">Subject</label>
-                            <input type="text" id="subject" name="subject" placeholder="Brief title of your issue"
+                            <input type="text" id="subject" name="title" placeholder="Brief title of your issue"
                                 required>
                         </div>
 

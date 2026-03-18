@@ -133,12 +133,13 @@ if (registerForm) {
     event.preventDefault();
 
     const name = document.getElementById("reg-name").value;
+    const studentId = document.getElementById("reg-student-id").value; // ✅ NEW
     const email = document.getElementById("reg-email").value;
     const password = document.getElementById("reg-password").value;
     const confirmPassword = document.getElementById("reg-confirm-password").value;
 
-    // Basic validation
-    if (!name || !email || !password || !confirmPassword) {
+    // Validation
+    if (!name || !studentId || !email || !password || !confirmPassword) {
       alert("Please fill all fields.");
       return;
     }
@@ -148,7 +149,6 @@ if (registerForm) {
       return;
     }
 
-    // Send data to backend
     fetch("http://localhost:5000/api/auth/register", {
       method: "POST",
       headers: {
@@ -158,6 +158,7 @@ if (registerForm) {
         name: name,
         email: email,
         password: password,
+        studentId: studentId, // ✅ FIXED
         role: "student"
       })
     })
@@ -166,7 +167,6 @@ if (registerForm) {
         if (data.userId) {
           alert("Registration successful! Please login.");
 
-          // Switch back to login form
           registerForm.classList.add("hidden");
           loginFormEl.classList.remove("hidden");
 

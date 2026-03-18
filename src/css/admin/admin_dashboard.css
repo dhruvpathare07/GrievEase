@@ -3,11 +3,15 @@
 .stats-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
-    margin-top: 40px;
+    gap: 25px;
+    margin-top: 30px;
     max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
 }
-
+.stat-card.full-width {
+    grid-column: span 2;
+}
 
 /* ===== STAT CARD ===== */
 
@@ -22,7 +26,10 @@
     transition: all 0.25s ease;
     position: relative;
     overflow: hidden;
+    width: 100%;
+    justify-content: flex-start;
 }
+
 
 /* subtle glow effect */
 .stat-card::before {
@@ -110,4 +117,111 @@
         grid-template-columns: 1fr;
     }
 
+}
+canvas {
+    margin-top: 20px;
+}
+/* ===== CATEGORY SECTION ===== */
+
+.category-section {
+    margin-top: 50px;
+}
+
+.section-title {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: var(--text-main);
+}
+
+/* Grid */
+
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+}
+
+/* Card */
+
+.category-card {
+    background: var(--card-bg);
+    padding: 25px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 6px 18px var(--shadow-color);
+    transition: all 0.25s ease;
+}
+
+.category-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Icon */
+
+.category-card i {
+    font-size: 24px;
+    color: var(--primary-blue);
+    margin-bottom: 10px;
+}
+
+/* Number */
+
+.category-card h3 {
+    font-size: 26px;
+    font-weight: 700;
+}
+
+/* Label */
+
+.category-card p {
+    font-size: 14px;
+    color: var(--text-secondary);
+}
+
+/* Responsive */
+
+@media(max-width:768px) {
+    .category-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+/* ===== LINE CHART SECTION ===== */
+
+.chart-section {
+    margin-top: 50px;
+    background: var(--card-bg);
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 6px 20px var(--shadow-color);
+}
+
+.chart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+/* Range buttons */
+
+.range-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.range-btn {
+    border: none;
+    padding: 6px 12px;
+    border-radius: 8px;
+    background: var(--bg-color);
+    color: var(--text-main);
+    cursor: pointer;
+    font-size: 13px;
+    transition: 0.2s;
+}
+
+.range-btn.active {
+    background: var(--primary-blue);
+    color: white;
 }

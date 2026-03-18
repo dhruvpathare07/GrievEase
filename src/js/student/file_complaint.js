@@ -12,12 +12,13 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    const category = document.getElementById("category").value;
-    const title = document.getElementById("subject").value;
-    const description = document.getElementById("description").value;
+    const formData = new FormData(form);
 
-    if (!category || !title || !description) {
-      alert("Please fill all required fields.");
+    const file = document.getElementById("attachment").files[0];
+
+    // ✅ File size validation (5MB)
+    if (file && file.size > 5 * 1024 * 1024) {
+      alert("File size must be less than 5MB");
       return;
     }
 
@@ -25,14 +26,9 @@ document.addEventListener("DOMContentLoaded", () => {
       const response = await fetch("http://localhost:5000/api/complaints", {
         method: "POST",
         headers: {
-          "Content-Type": "application/json",
           "Authorization": "Bearer " + token
         },
-        body: JSON.stringify({
-          title: title,
-          description: description,
-          category: category
-        })
+        body: formData
       });
 
       const data = await response.json();
@@ -45,8 +41,8 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
     } catch (error) {
-      console.error("Error submitting complaint:", error);
-      alert("Server error. Try again later.");
+      console.error(error);
+      alert("Server error");
     }
 
   });

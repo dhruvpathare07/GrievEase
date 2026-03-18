@@ -30,8 +30,8 @@ const data = await res.json();
 document.getElementById("profile-name").textContent = data.name;
 document.getElementById("profile-email").textContent = data.email;
 
-// student ID = Mongo _id (since you don't store separate studentId)
-document.getElementById("profile-id").textContent = data._id;
+// ✅ FIXED: show actual student ID
+document.getElementById("profile-id").textContent = data.studentId;
 
 document.getElementById("avatar-letter").textContent =
 data.name.charAt(0).toUpperCase();

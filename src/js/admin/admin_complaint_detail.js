@@ -101,7 +101,7 @@ badge.textContent=formatStatusText(data.status);
 badge.className=`status-badge ${getStatusClass(data.status)}`;
 
 document.getElementById("complaint-id").textContent=
-data._id.slice(-6).toUpperCase();
+data.complaintId || data._id.slice(-6).toUpperCase();
 
 document.getElementById("complaint-category").textContent=data.category;
 
@@ -113,10 +113,17 @@ new Date(data.createdAt).toLocaleDateString("en-GB");
 
 document.getElementById("complaint-description").textContent=data.description;
 
-if(!data.attachment){
-document.getElementById("attachment-section").style.display="none";
-}else{
-document.getElementById("attachment-name").textContent=data.attachment;
+const attachmentSection = document.getElementById("attachment-section");
+
+if (!data.image) {
+  attachmentSection.style.display = "none";
+} else {
+  attachmentSection.innerHTML = `
+    <img 
+      src="http://localhost:5000/uploads/${data.image}" 
+      style="max-width:300px; border-radius:10px; margin-top:10px;"
+    >
+  `;
 }
 
 document.getElementById("status-select").value=data.status;

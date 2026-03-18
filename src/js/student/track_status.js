@@ -28,11 +28,13 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     const complaint = await response.json();
 
+    const displayId = complaint.complaintId || complaint._id.slice(-6).toUpperCase();
+
     /* ===== SUMMARY ===== */
 
     const values = document.querySelectorAll(".summary-grid .value");
 
-    values[0].textContent = complaint._id.slice(-6).toUpperCase();
+    values[0].textContent = displayId;
     values[1].textContent = complaint.category;
     values[2].textContent = complaint.title;
     values[3].textContent =
@@ -67,8 +69,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 });
 
-
-/* ===== BUILD TIMELINE ===== */
 
 function buildTimeline(history) {
 
@@ -128,8 +128,6 @@ function buildTimeline(history) {
 
 }
 
-
-/* ===== FORMAT STATUS ===== */
 
 function formatStatus(status) {
   return status

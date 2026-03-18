@@ -22,6 +22,7 @@ app.use(express.json());
 app.use("/api/auth", authRoutes);
 app.use("/api/protected", protectedRoutes); // 👈 ADD HERE
 app.use("/api/complaints", complaintRoutes); // 👈 ADD COMPLAINT ROUTES
+app.use("/uploads", express.static("uploads"));
 
 // test route
 app.get("/", (req, res) => {

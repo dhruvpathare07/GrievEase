@@ -61,16 +61,26 @@ const complaintSchema = new mongoose.Schema(
         }
       }
     ],
-    // 🔥 NEW: Public response visible to student
+    //  Public response visible to student
     publicResponse: {
       type: String,
       default: ""
     },
 
-    // 🔥 NEW: Internal admin-only remarks
+    //  Internal admin-only remarks
     internalRemarks: {
       type: String,
       default: ""
+    },
+    // Image upload
+    image: {
+      type: String,
+      default: null
+    },
+    // Complaint ID
+    complaintId: {
+      type: String,
+      unique: true
     }
 
   },

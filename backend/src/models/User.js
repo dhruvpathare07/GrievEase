@@ -13,6 +13,11 @@ const userSchema = new mongoose.Schema(
       unique: true,
       lowercase: true
     },
+    studentId: {
+      type: String,
+      required: true,
+      unique: true
+    },
     password: {
       type: String,
       required: true

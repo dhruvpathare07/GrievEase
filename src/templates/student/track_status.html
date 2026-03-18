@@ -42,34 +42,39 @@
 
     <div class="main-layout">
 
-        <!-- ===== SIDEBAR ===== -->
-        <aside class="sidebar-nav">
-            <a href="./student_dashboard.html" class="nav-item">
-                <i class="fas fa-home"></i> <span>Dashboard</span>
-            </a>
+         <!-- SIDEBAR -->
+           <aside class="sidebar-nav">
+                <a href="./student_dashboard.html" class="nav-item">
+                    <i class="fas fa-home"></i> Dashboard
+                </a>
 
-            <a href="./profile.html" class="nav-item">
-                <i class="fas fa-user"></i> <span>My Profile</span>
-            </a>
+                <a href="./profile.html" class="nav-item">
+                    <i class="fas fa-user"></i> My Profile
+                </a>
 
-            <a href="./my_complaints.html" class="nav-item">
-                <i class="fas fa-list"></i> <span>My Complaints</span>
-            </a>
+                <div class="nav-item nav-parent" id="theme-parent">
+                    <i class="fas fa-cog"></i> Theme
+                    <i class="fas fa-chevron-right arrow-icon"></i>
+                </div>
 
-            <div class="nav-item nav-parent" id="theme-parent">
-                <i class="fas fa-cog"></i> <span>Theme</span>
-                <i class="fas fa-chevron-right arrow-icon"></i>
-            </div>
+                <div class="theme-submenu" id="theme-submenu">
+                    <button class="nav-sub-item" id="theme-light">
+                        <i class="fas fa-sun"></i> Light
+                    </button>
+                    <button class="nav-sub-item" id="theme-dark">
+                        <i class="fas fa-moon"></i> Dark
+                    </button>
+                </div>
 
-            <div class="theme-submenu" id="theme-submenu">
-                <button class="nav-sub-item" id="theme-light"><i class="fas fa-sun"></i> Light</button>
-                <button class="nav-sub-item" id="theme-dark"><i class="fas fa-moon"></i> Dark</button>
-            </div>
+                <a href="./help_support.html" class="nav-item">
+                    <i class="fas fa-question-circle"></i> Help & Support
+                </a>
 
-            <a href="#" class="nav-item logout-sidebar-btn">
-                <i class="fas fa-sign-out-alt"></i> <span>Logout</span>
-            </a>
-        </aside>
+                <a href="#" class="nav-item logout-sidebar-btn" id="logout-sidebar-btn">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </a>
+
+            </aside>
 
         <!-- ===== MAIN CONTENT ===== -->
         <main class="dashboard-content">

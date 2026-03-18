@@ -1,15 +1,46 @@
 const Complaint = require("../models/Complaint");
 
-// 📝 Submit Complaint
+// Submit Complaint
 exports.createComplaint = async (req, res) => {
   try {
     const { title, description, category } = req.body;
 
+    const imagePath = req.file ? req.file.filename : null;
+
+    //  CATEGORY MAP
+    const categoryMap = {
+      academic: "ACA",
+      infrastructure: "INF",
+      hostel: "HOS",
+      other: "OTH"
+    };
+
+    const prefix = categoryMap[category] || "CMP";
+
+    //  CURRENT YEAR
+    const year = new Date().getFullYear();
+
+    //  COUNT same category + same year
+    const count = await Complaint.countDocuments({
+      category,
+      createdAt: {
+        $gte: new Date(`${year}-01-01`),
+        $lte: new Date(`${year}-12-31`)
+      }
+    });
+
+    //  GENERATE ID
+    const sequence = String(count + 1).padStart(3, "0");
+    const complaintId = `${prefix}-${year}-${sequence}`;
+
+    //  CREATE
     const complaint = await Complaint.create({
+      complaintId,
       title,
       description,
       category,
       student: req.user.id,
+      image: imagePath,
       statusHistory: [
         {
           status: "submitted",

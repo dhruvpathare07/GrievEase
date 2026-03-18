@@ -5,7 +5,7 @@ const jwt = require("jsonwebtoken");
 // REGISTER
 exports.register = async (req, res) => {
   try {
-    const { name, email, password } = req.body;
+    const { name, email, password, studentId } = req.body;
 
     // check user exists
     const existingUser = await User.findOne({ email });
@@ -21,7 +21,8 @@ exports.register = async (req, res) => {
       name,
       email,
       password: hashedPassword,
-      role: "student" // default role
+      studentId,
+      role: "student"
     });
 
     res.status(201).json({
@@ -39,7 +40,12 @@ exports.login = async (req, res) => {
   try {
     const { email, password } = req.body;
 
-    const user = await User.findOne({ email });
+    const user = await User.findOne({
+  $or: [
+    { email: email },
+    { studentId: email } // supports student ID login
+  ]
+});
     if (!user) {
       return res.status(400).json({ message: "Invalid credentials" });
     }
@@ -55,12 +61,12 @@ exports.login = async (req, res) => {
       { expiresIn: "1d" }
     );
 
-  res.status(200).json({
-  message: "Login successful",
-  token,
-  role: user.role,
-  name: user.name
-});
+    res.status(200).json({
+      message: "Login successful",
+      token,
+      role: user.role,
+      name: user.name
+    });
 
   } catch (error) {
     res.status(500).json({ message: error.message });
