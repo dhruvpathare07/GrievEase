@@ -1,3 +1,4 @@
+const BASE_URL = "https://grievease-backend.onrender.com";
 document.addEventListener('DOMContentLoaded', () => {
     // 1. Get DOM Elements
     const loginForm = document.getElementById('login-form');
@@ -56,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log(`--- Simulated Login Attempt ---`);
         console.log(`Login Type: ${loginType}`);
         console.log(`Username: ${username}`);
-        fetch("http://localhost:5000/api/auth/login", {
+        fetch(`${BASE_URL}/api/auth/login`, {
             method: "POST",
             headers: {
               "Content-Type": "application/json"
@@ -66,7 +67,12 @@ document.addEventListener('DOMContentLoaded', () => {
               password: password
             })
           })
-            .then(res => res.json())
+            .then(res => {
+  if (!res.ok) {
+    throw new Error("Server error");
+  }
+  return res.json();
+})
             .then(data => {
               if (data.token) {
                 // ✅ Store token
@@ -123,8 +129,6 @@ if (backToLoginLink) {
         loginFormEl.classList.remove('hidden');
     });
 }
-
-});
 // ===== REGISTER FORM SUBMIT =====
 const registerForm = document.getElementById("register-form");
 
@@ -149,7 +153,7 @@ if (registerForm) {
       return;
     }
 
-    fetch("http://localhost:5000/api/auth/register", {
+    fetch(`${BASE_URL}/api/auth/register`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -162,7 +166,12 @@ if (registerForm) {
         role: "student"
       })
     })
-      .then(res => res.json())
+      .then(res => {
+  if (!res.ok) {
+    throw new Error("Server error");
+  }
+  return res.json();
+})
       .then(data => {
         if (data.userId) {
           alert("Registration successful! Please login.");
@@ -181,3 +190,5 @@ if (registerForm) {
       });
   });
 }
+
+});
