@@ -1,4 +1,4 @@
-const BASE_URL = "https://grievease-backend.onrender.com";
+const BASE_URL = "http://localhost:5000";
 document.addEventListener('DOMContentLoaded', () => {
     // 1. Get DOM Elements
     const loginForm = document.getElementById('login-form');
