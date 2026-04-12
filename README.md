@@ -145,7 +145,7 @@ GrievEase/
 ### 1️⃣ Clone the Repository
 
 ```bash id="yq8mbn"
-git clone <your-repo-link>
+git clone https://github.com/dhruvpathare07/GrievEase.git
 cd GrievEase
 ```
 
