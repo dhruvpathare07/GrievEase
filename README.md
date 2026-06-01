@@ -3,6 +3,19 @@
 GrievEase is a full-stack web application designed to streamline complaint management for students and administrators. It provides a structured workflow where users can submit complaints and track their status, while admins can review, update, and resolve them efficiently.
 
 ---
+## 🌟 Images
+<img width="1920" height="951" alt="login" src="https://github.com/user-attachments/assets/ad36c4b2-1073-4582-b382-4d7fd3bab01b" />
+<img width="1919" height="936" alt="dashboard" src="https://github.com/user-attachments/assets/efcbea11-84b5-4813-9451-7f5925666c89" />
+<img width="1920" height="943" alt="FileComplaint" src="https://github.com/user-attachments/assets/731ba21d-a321-4ebb-a7e0-a592deafb668" />
+<img width="1916" height="942" alt="MyComplaints" src="https://github.com/user-attachments/assets/7a78f7d0-9434-4081-9fdf-22f22247cc1a" />
+<img width="1916" height="937" alt="profile" src="https://github.com/user-attachments/assets/5ab0a95e-d65f-4564-b4e1-ecd71f322201" />
+<img width="1918" height="943" alt="track_status" src="https://github.com/user-attachments/assets/ed0d7a0e-979d-4f8f-9227-1c9c22d5c1c2" />
+<img width="1915" height="926" alt="adminlogin" src="https://github.com/user-attachments/assets/e79703cb-1c21-4d17-9ed8-e991b8ec7881" />
+<img width="1895" height="938" alt="AdminDashboard" src="https://github.com/user-attachments/assets/96095fad-a3a0-44a1-aba1-6873dd4eef77" />
+<img width="1897" height="947" alt="Complaints" src="https://github.com/user-attachments/assets/a8081b76-f57e-46cc-9f68-0e2002a26c8a" />
+<img width="1899" height="947" alt="admin_complaint_detail1" src="https://github.com/user-attachments/assets/f391a24d-6262-4745-abdd-70667e7447e8" />
+<img width="1886" height="924" alt="admin_complaint_detail2" src="https://github.com/user-attachments/assets/c3834e70-152e-4d82-a924-1978028e789d" />
+<img width="1918" height="926" alt="admin_notes" src="https://github.com/user-attachments/assets/e137d9dc-0c16-48e7-ac79-32d5fe704a45" />
 
 ## 🌟 Features
 
@@ -327,3 +340,4 @@ User → Frontend → API Request → Express → Controller → Database
 ## 🎯 Conclusion
 
 GrievEase simplifies complaint handling by providing a structured and transparent system for both users and administrators. It demonstrates real-world implementation of authentication, REST APIs, and database integration.
+
