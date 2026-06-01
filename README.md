@@ -65,93 +65,6 @@ GrievEase is a full-stack web application designed to streamline complaint manag
 
 ---
 
-## 📁 Project Structure
-
-```id="w0flr9"
-GrievEase/
-│
-├── backend/
-│   ├── config/
-│   │   └── db.js
-│   │
-│   ├── controllers/
-│   │   ├── authController.js
-│   │   └── complaintController.js
-│   │
-│   ├── middleware/
-│   │   └── authMiddleware.js
-│   │
-│   ├── models/
-│   │   ├── User.js
-│   │   └── Complaint.js
-│   │
-│   ├── routes/
-│   │   ├── authRoutes.js
-│   │   ├── complaintRoutes.js
-│   │   └── protectedRoutes.js
-│   │
-│   ├── server.js
-│   └── .env
-│
-├──src/
-│    │
-│    ├── css/
-│    │   ├── admin/
-│    │   │   ├── admin_complaint_detail.css
-│    │   │   ├── admin_complaints.css
-│    │   │   ├── admin_dashboard.css
-│    │   │   └── admin_notes.css
-│    │   │
-│    │   ├── shared/
-│    │   │   ├── dashboard.css
-│    │   │   └── index_login.css
-│    │   │
-│    │   └── student/
-│    │       ├── file_complaint.css
-│    │       ├── help_support.css
-│    │       ├── my_complaints.css
-│    │       ├── profile.css
-│    │       └── track_status.css
-│    │
-│    ├── js/
-│    │   ├── admin/
-│    │   │   ├── admin_complaint_detail.js
-│    │   │   ├── admin_complaints.js
-│    │   │   ├── admin_dashboard.js
-│    │   │   └── admin_notes.js
-│    │   │
-│    │   ├── shared/
-│    │   │   ├── dashboard.js
-│    │   │   ├── login.js
-│    │   │   └── theme-engine.js
-│    │   │
-│    │   └── student/
-│    │       ├── file_complaint.js
-│    │       ├── help_support.js
-│    │       ├── my_complaints.js
-│    │       ├── profile.js
-│    │       └── track_status.js
-│    │
-│    ├── templates/
-│    │   ├── admin/
-│    │   │   ├── admin_complaint_detail.html
-│    │   │   ├── admin_complaints.html
-│    │   │   ├── admin_dashboard.html
-│    │   │   └── admin_notes.html
-│    │   │
-│    │   └── student/
-│    │       ├── file_complaint.html
-│    │       ├── help_support.html
-│    │       ├── my_complaints.html
-│    │       ├── profile.html
-│    │       ├── student_dashboard.html
-│    │       └── track_status.html
-│    │
-│    ├── index.html
-```
-
-
----
 
 ## ⚙️ Setup Instructions
 
@@ -242,30 +155,7 @@ OR use Live Server in VS Code.
 
 ---
 
-## 🔐 API Base URL
 
-```id="nqdl4m"
-http://localhost:5000/api
-```
-
----
-
-## 📡 API Endpoints
-
-### 🔑 Authentication
-
-* `POST /api/auth/register` → Register user
-* `POST /api/auth/login` → Login user
-
----
-
-### 📢 Complaints
-
-* `POST /api/complaints` → Create complaint
-* `GET /api/complaints` → Get user complaints
-* `PUT /api/complaints/:id` → Update complaint (Admin)
-
----
 
 ## 🔒 Authentication Flow
 
@@ -283,34 +173,6 @@ http://localhost:5000/api
 * JWT-based authentication
 * Protected routes using middleware
 * Environment variables for sensitive data
-
----
-
-## 🧪 Testing
-
-You can test APIs using:
-
-* Postman
-* Thunder Client (VS Code Extension)
-
----
-
-## ⚠️ Important Notes
-
-* Do NOT upload `.env` file to GitHub
-* Add `.env` to `.gitignore`
-* Ensure MongoDB is running before starting backend
-* Admin user must be created manually in database
-
----
-
-## 🚀 Future Enhancements
-
-* Email notifications
-* File/image upload for complaints
-* Real-time status updates
-* Role-based dashboards
-* Deployment (Render / Vercel / MongoDB Atlas)
 
 ---
 
